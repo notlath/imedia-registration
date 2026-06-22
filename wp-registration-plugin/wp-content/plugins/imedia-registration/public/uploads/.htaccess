@@ -1,0 +1,5 @@
+# Deny direct browser access to resume files.
+# Files in uploads/ are referenced from the admin app via a PHP script
+# (or returned via /admin/applications/{type}/{id}/resume).
+# The front controller checks auth and streams the file.
+Require all denied

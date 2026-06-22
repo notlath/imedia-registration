@@ -1,0 +1,68 @@
+# =============================================================================
+# IMedia Registration — .htaccess for the subpath app
+#
+# Place at: wp-content/plugins/imedia-registration/public/.htaccess
+# Purpose:
+#   - Rewrite all non-file, non-directory requests to public/index.php
+#   - Block direct PHP execution in uploads/
+#   - Set baseline security headers
+#
+# Apache must have mod_rewrite enabled (default on cPanel).
+# =============================================================================
+
+# Disable directory listings
+Options -Indexes -MultiViews
+
+# ---- URL rewriting: send all unmatched paths to public/index.php ----
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If the requested file or directory exists on disk, serve it as-is
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Otherwise, hand off to the front controller
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# ---- Deny PHP execution inside uploads/ ----
+# Even if a malicious file lands in uploads/, it cannot be executed.
+<Directory "uploads">
+    <FilesMatch "\.(php|phtml|phar|php3|php4|php5|php7|pht|phps)$">
+        Require all denied
+    </FilesMatch>
+    php_flag engine off
+</Directory>
+
+# ---- Default character set ----
+AddDefaultCharset UTF-8
+
+# ---- Security headers ----
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # HSTS — only enable if the entire site is HTTPS. Adjust max-age as needed.
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ---- Block direct access to sensitive file types ----
+<FilesMatch "\.(env|ini|log|sql|sh|json|lock)$">
+    Require all denied
+</FilesMatch>
+
+# ---- Allow common static asset types ----
+<FilesMatch "\.(css|js|map|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|otf|eot)$">
+    Require all granted
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresByType text/css            "access plus 7 days"
+        ExpiresByType application/javascript "access plus 7 days"
+        ExpiresByType image/png            "access plus 30 days"
+        ExpiresByType image/jpeg           "access plus 30 days"
+        ExpiresByType image/svg+xml        "access plus 30 days"
+        ExpiresByType font/woff2           "access plus 1 year"
+    </IfModule>
+</FilesMatch>

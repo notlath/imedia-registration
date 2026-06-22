@@ -1,0 +1,867 @@
+{
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\condition-based-waiting-example.ts": {
+    "mtime": 1782094773.0029628,
+    "ast_hash": "8e502a8c1e9c7de15967202615d241d5",
+    "semantic_hash": "8e502a8c1e9c7de15967202615d241d5"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\find-polluter.sh": {
+    "mtime": 1782094773.003968,
+    "ast_hash": "2ae1144fa5a66aa26c13d644a12ad0bf",
+    "semantic_hash": "2ae1144fa5a66aa26c13d644a12ad0bf"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.opencode\\opencode.json": {
+    "mtime": 1782092697.923803,
+    "ast_hash": "1efe24ecf938911d4f23e4b1c6ec91f7",
+    "semantic_hash": "1efe24ecf938911d4f23e4b1c6ec91f7"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.opencode\\package.json": {
+    "mtime": 1782092779.7904465,
+    "ast_hash": "d0b068006602e0626e3362ba1a788a00",
+    "semantic_hash": "d0b068006602e0626e3362ba1a788a00"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.opencode\\plugins\\graphify.js": {
+    "mtime": 1782093487.3267245,
+    "ast_hash": "32b67963417a30cb80544e0b2a56a98d",
+    "semantic_hash": "32b67963417a30cb80544e0b2a56a98d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\skills-lock.json": {
+    "mtime": 1782094809.6018841,
+    "ast_hash": "4af686612068d25073b1770de5d9d3df",
+    "semantic_hash": "4af686612068d25073b1770de5d9d3df"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\js\\dashboard.js": {
+    "mtime": 1782092590.9873154,
+    "ast_hash": "a9ef884fed26c0467ffbaaefdb1b7fb2",
+    "semantic_hash": "a9ef884fed26c0467ffbaaefdb1b7fb2"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\js\\entries.js": {
+    "mtime": 1782092590.9873154,
+    "ast_hash": "4435770a46a135d4be63c9df25c94170",
+    "semantic_hash": "4435770a46a135d4be63c9df25c94170"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\js\\form-builder.js": {
+    "mtime": 1782092590.9883149,
+    "ast_hash": "3ebaf960b9f81d5472831f696364b36a",
+    "semantic_hash": "3ebaf960b9f81d5472831f696364b36a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\views\\all-entries.php": {
+    "mtime": 1782092590.989315,
+    "ast_hash": "9d7b674d0eb54a6c7c2db919c0a4146a",
+    "semantic_hash": "9d7b674d0eb54a6c7c2db919c0a4146a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\views\\builder.php": {
+    "mtime": 1782092590.989315,
+    "ast_hash": "2cf155962e99923c8a0b475cb81ebfb6",
+    "semantic_hash": "2cf155962e99923c8a0b475cb81ebfb6"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\views\\dashboard.php": {
+    "mtime": 1782099074.0121653,
+    "ast_hash": "69723136c79907cf1d0693bbe6710af0",
+    "semantic_hash": "69723136c79907cf1d0693bbe6710af0"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\views\\entries-list.php": {
+    "mtime": 1782092590.9903157,
+    "ast_hash": "756e64ffbacc6a970d5eee33860082ce",
+    "semantic_hash": "756e64ffbacc6a970d5eee33860082ce"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\views\\entry-detail.php": {
+    "mtime": 1782092590.9913154,
+    "ast_hash": "d935e98e1da44899a772dddd4457f359",
+    "semantic_hash": "d935e98e1da44899a772dddd4457f359"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\admin\\views\\settings.php": {
+    "mtime": 1782112189.1405263,
+    "ast_hash": "b5c1a0b39bd2bd2da8e5db26127871cb",
+    "semantic_hash": "b5c1a0b39bd2bd2da8e5db26127871cb"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\AlertsController.php": {
+    "mtime": 1782104092.7684648,
+    "ast_hash": "b232b877ea6f4da311c52556bea5e3e2",
+    "semantic_hash": "b232b877ea6f4da311c52556bea5e3e2"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\ApplicationsController.php": {
+    "mtime": 1782105815.0403016,
+    "ast_hash": "541367aab98e89239d8c49d22f5bf29e",
+    "semantic_hash": "541367aab98e89239d8c49d22f5bf29e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\ContactsController.php": {
+    "mtime": 1782105804.4350693,
+    "ast_hash": "3e60dbe06b0519e06dee84d15f4fd3b1",
+    "semantic_hash": "3e60dbe06b0519e06dee84d15f4fd3b1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\CustomEndpointsController.php": {
+    "mtime": 1782105842.1270423,
+    "ast_hash": "a7dfcdf5aaa1ffd8663f7d96bcd47623",
+    "semantic_hash": "a7dfcdf5aaa1ffd8663f7d96bcd47623"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\DashboardController.php": {
+    "mtime": 1782110847.646489,
+    "ast_hash": "445c752b8fcfac55485216184a3ddac1",
+    "semantic_hash": "445c752b8fcfac55485216184a3ddac1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\ExportController.php": {
+    "mtime": 1782116038.5079904,
+    "ast_hash": "92bb0e426f43f866cc789271df138a34",
+    "semantic_hash": "92bb0e426f43f866cc789271df138a34"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\FormRouteController.php": {
+    "mtime": 1782105891.708449,
+    "ast_hash": "ae0c6843431c394afbc3b801706fc8cc",
+    "semantic_hash": "ae0c6843431c394afbc3b801706fc8cc"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\HomeController.php": {
+    "mtime": 1782100025.7149785,
+    "ast_hash": "835f3d3252b5768b9d4a67c2b739276e",
+    "semantic_hash": "835f3d3252b5768b9d4a67c2b739276e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\LoginController.php": {
+    "mtime": 1782116274.547356,
+    "ast_hash": "b3d6a093af232d55a6437d8404af7d57",
+    "semantic_hash": "b3d6a093af232d55a6437d8404af7d57"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\OutboxController.php": {
+    "mtime": 1782116140.4630525,
+    "ast_hash": "4a644a84bca6f2d6e5561cc64c69a5ff",
+    "semantic_hash": "4a644a84bca6f2d6e5561cc64c69a5ff"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\ProfileController.php": {
+    "mtime": 1782105880.008214,
+    "ast_hash": "1de9f16eae5e063b970a7735094cf388",
+    "semantic_hash": "1de9f16eae5e063b970a7735094cf388"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\RegistrationsController.php": {
+    "mtime": 1782116058.1965835,
+    "ast_hash": "b2483a81f9eda46320cc045997cbc2a8",
+    "semantic_hash": "b2483a81f9eda46320cc045997cbc2a8"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\SettingsController.php": {
+    "mtime": 1782115712.3300638,
+    "ast_hash": "b0960cfa0409356622a64122bf3af838",
+    "semantic_hash": "b0960cfa0409356622a64122bf3af838"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\SubmitController.php": {
+    "mtime": 1782104047.656665,
+    "ast_hash": "23892ed13a2e7ec10217f6589542cd97",
+    "semantic_hash": "23892ed13a2e7ec10217f6589542cd97"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Controllers\\UsersController.php": {
+    "mtime": 1782105864.4435165,
+    "ast_hash": "b4a2d36fca1537e1e9607197aa15320f",
+    "semantic_hash": "b4a2d36fca1537e1e9607197aa15320f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Auth.php": {
+    "mtime": 1782100601.4189014,
+    "ast_hash": "2476fc93cf60eb38df2e269ccb194eeb",
+    "semantic_hash": "2476fc93cf60eb38df2e269ccb194eeb"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Bootstrap.php": {
+    "mtime": 1782116171.7147353,
+    "ast_hash": "8dd359c06b3764098c6abcabe9116443",
+    "semantic_hash": "8dd359c06b3764098c6abcabe9116443"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Config.php": {
+    "mtime": 1782115326.9571593,
+    "ast_hash": "2c00afd647eb35527a3f80e581f6eca8",
+    "semantic_hash": "2c00afd647eb35527a3f80e581f6eca8"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Csrf.php": {
+    "mtime": 1782115551.7318616,
+    "ast_hash": "2f230cf6e0f2eace224c1cb6ad1f1333",
+    "semantic_hash": "2f230cf6e0f2eace224c1cb6ad1f1333"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Database.php": {
+    "mtime": 1782116001.0528347,
+    "ast_hash": "c391a8d092a062ca6b5047674f207cb6",
+    "semantic_hash": "c391a8d092a062ca6b5047674f207cb6"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Hmac.php": {
+    "mtime": 1782115514.55764,
+    "ast_hash": "a85b5f50256b3d2cbbfe7a6fb26a9cd8",
+    "semantic_hash": "a85b5f50256b3d2cbbfe7a6fb26a9cd8"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Logger.php": {
+    "mtime": 1782115382.3757043,
+    "ast_hash": "d46a2945563ada4c76bc81eba1430529",
+    "semantic_hash": "d46a2945563ada4c76bc81eba1430529"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\PhpmailerLoader.php": {
+    "mtime": 1782107869.1800258,
+    "ast_hash": "18d7e268d83e26b5d7263f6b3c6be726",
+    "semantic_hash": "18d7e268d83e26b5d7263f6b3c6be726"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Request.php": {
+    "mtime": 1782115392.3393888,
+    "ast_hash": "d52da4baafcaa9db04d682bca6b49b23",
+    "semantic_hash": "d52da4baafcaa9db04d682bca6b49b23"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Response.php": {
+    "mtime": 1782115454.5654228,
+    "ast_hash": "5fc1fdca6fac6f718e384168e12b81fb",
+    "semantic_hash": "5fc1fdca6fac6f718e384168e12b81fb"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Router.php": {
+    "mtime": 1782115585.4619317,
+    "ast_hash": "d9f91460acbacccaa0bd9c868d97b30e",
+    "semantic_hash": "d9f91460acbacccaa0bd9c868d97b30e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\Session.php": {
+    "mtime": 1782116160.2922375,
+    "ast_hash": "fa13289b96c6d99017532a2292f6435f",
+    "semantic_hash": "fa13289b96c6d99017532a2292f6435f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Core\\View.php": {
+    "mtime": 1782115481.4922194,
+    "ast_hash": "a45660906d6aafae18546689dbec106b",
+    "semantic_hash": "a45660906d6aafae18546689dbec106b"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Middleware\\AdminAuth.php": {
+    "mtime": 1782103973.9424725,
+    "ast_hash": "809017e12fe907ab57ea73f75deb4e03",
+    "semantic_hash": "809017e12fe907ab57ea73f75deb4e03"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Middleware\\CsrfVerify.php": {
+    "mtime": 1782103981.6885934,
+    "ast_hash": "f66d3572d61673a70f274eed669ad254",
+    "semantic_hash": "f66d3572d61673a70f274eed669ad254"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Middleware\\HmacVerify.php": {
+    "mtime": 1782112237.8326254,
+    "ast_hash": "d7fb5f6dcb0e281ebf571174f26f2e25",
+    "semantic_hash": "d7fb5f6dcb0e281ebf571174f26f2e25"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\Admin.php": {
+    "mtime": 1782116252.1867878,
+    "ast_hash": "85e299fd9b889705ad5336ebe1526c90",
+    "semantic_hash": "85e299fd9b889705ad5336ebe1526c90"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\Application.php": {
+    "mtime": 1782105743.0723934,
+    "ast_hash": "c4e85ed43aba14faa51c2c4c51dba6b5",
+    "semantic_hash": "c4e85ed43aba14faa51c2c4c51dba6b5"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\Contact.php": {
+    "mtime": 1782115620.2727468,
+    "ast_hash": "6870130876c9a9f9b7d82f5454bc228a",
+    "semantic_hash": "6870130876c9a9f9b7d82f5454bc228a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\CustomEndpoint.php": {
+    "mtime": 1782105762.901582,
+    "ast_hash": "013e2342f3a936c971be0aa4adfc5e14",
+    "semantic_hash": "013e2342f3a936c971be0aa4adfc5e14"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\CustomSubmission.php": {
+    "mtime": 1782115649.8840032,
+    "ast_hash": "7ec83212e071d461f578ec3164354449",
+    "semantic_hash": "7ec83212e071d461f578ec3164354449"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\FormRoute.php": {
+    "mtime": 1782099973.3966675,
+    "ast_hash": "2fb40281efb280ed957aa7eb0169c05f",
+    "semantic_hash": "2fb40281efb280ed957aa7eb0169c05f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\LoginAttempt.php": {
+    "mtime": 1782116217.7317896,
+    "ast_hash": "091269137c467ecd95c536086d3cc335",
+    "semantic_hash": "091269137c467ecd95c536086d3cc335"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\OutboxEmail.php": {
+    "mtime": 1782116137.0566173,
+    "ast_hash": "a6c63b343da0d911ac9dd176fdefa3e8",
+    "semantic_hash": "a6c63b343da0d911ac9dd176fdefa3e8"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\Registration.php": {
+    "mtime": 1782116078.5533361,
+    "ast_hash": "b4bc4441cb8391942c0683b2d4b790ae",
+    "semantic_hash": "b4bc4441cb8391942c0683b2d4b790ae"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\Setting.php": {
+    "mtime": 1782115674.102569,
+    "ast_hash": "37b23b6154a16ba1a465e28381140938",
+    "semantic_hash": "37b23b6154a16ba1a465e28381140938"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\StatusHistory.php": {
+    "mtime": 1782103811.6379383,
+    "ast_hash": "7e24ff303e2211266d4f68df614efad9",
+    "semantic_hash": "7e24ff303e2211266d4f68df614efad9"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Models\\ThresholdAlert.php": {
+    "mtime": 1782103825.1699078,
+    "ast_hash": "c8c9fbb1631bc6a8b90fb99b1422bcfc",
+    "semantic_hash": "c8c9fbb1631bc6a8b90fb99b1422bcfc"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Services\\FileStorage.php": {
+    "mtime": 1782108542.0569727,
+    "ast_hash": "5a7750dca39c0db74231b71d3765177c",
+    "semantic_hash": "5a7750dca39c0db74231b71d3765177c"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Services\\Mailer.php": {
+    "mtime": 1782108537.666114,
+    "ast_hash": "a15bc7cb0ae7cdba3713ba1b3dcf2cc2",
+    "semantic_hash": "a15bc7cb0ae7cdba3713ba1b3dcf2cc2"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Services\\OutboxWorker.php": {
+    "mtime": 1782107953.390174,
+    "ast_hash": "f950abc0369b9a0280f22b3d1ec45ace",
+    "semantic_hash": "f950abc0369b9a0280f22b3d1ec45ace"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Services\\StatsCalculator.php": {
+    "mtime": 1782103943.1322448,
+    "ast_hash": "314a56640bd34d49be7a56ad3b46be9e",
+    "semantic_hash": "314a56640bd34d49be7a56ad3b46be9e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Services\\StatusLogger.php": {
+    "mtime": 1782103951.7269087,
+    "ast_hash": "7d3bd94b7c4e0f2d1c99f718fa91822d",
+    "semantic_hash": "7d3bd94b7c4e0f2d1c99f718fa91822d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\app\\Services\\ThresholdChecker.php": {
+    "mtime": 1782103965.5769496,
+    "ast_hash": "6175f689caf520c3fefd4301c1882baf",
+    "semantic_hash": "6175f689caf520c3fefd4301c1882baf"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\config\\config.example.php": {
+    "mtime": 1782115917.829504,
+    "ast_hash": "6ae4c8942f9e5e00a7c5153fc46ed1f1",
+    "semantic_hash": "6ae4c8942f9e5e00a7c5153fc46ed1f1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\cron\\process-outbox.php": {
+    "mtime": 1782108269.9073243,
+    "ast_hash": "a0c9d6e2f2b3b6ad5b61b9241bb031a4",
+    "semantic_hash": "a0c9d6e2f2b3b6ad5b61b9241bb031a4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\database\\migration-005-resume.sql": {
+    "mtime": 1782108071.6782258,
+    "ast_hash": "971c4a0eaf795a39406ca82b222f82f7",
+    "semantic_hash": "971c4a0eaf795a39406ca82b222f82f7"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\database\\migration-006-login-throttle.sql": {
+    "mtime": 1782116199.2788434,
+    "ast_hash": "c028397f3b3271a4c6e89eb74a1d5a14",
+    "semantic_hash": "c028397f3b3271a4c6e89eb74a1d5a14"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\database\\schema.sql": {
+    "mtime": 1782108064.4122143,
+    "ast_hash": "3186680e2d567f9215f2561cec50dc44",
+    "semantic_hash": "3186680e2d567f9215f2561cec50dc44"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\frontend\\js\\script.js": {
+    "mtime": 1782092590.9936345,
+    "ast_hash": "5036ef5d21d572cd4945aa1e7428b01a",
+    "semantic_hash": "5036ef5d21d572cd4945aa1e7428b01a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\imedia-registration.php": {
+    "mtime": 1782099055.7922423,
+    "ast_hash": "875c39d290c54ade56b925caa990809f",
+    "semantic_hash": "875c39d290c54ade56b925caa990809f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\class-imf-admin.php": {
+    "mtime": 1782112151.274055,
+    "ast_hash": "a9aca880e74a64f0afcee7048ff30f2f",
+    "semantic_hash": "a9aca880e74a64f0afcee7048ff30f2f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\class-imf-ajax.php": {
+    "mtime": 1782092590.9956343,
+    "ast_hash": "91dc6cd18077dd354c53b39516fcbd4a",
+    "semantic_hash": "91dc6cd18077dd354c53b39516fcbd4a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\class-imf-database.php": {
+    "mtime": 1782092590.9956343,
+    "ast_hash": "0e4d87b3c01ced65fdb6d63a5d7a896b",
+    "semantic_hash": "0e4d87b3c01ced65fdb6d63a5d7a896b"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\class-imf-email.php": {
+    "mtime": 1782092590.9966345,
+    "ast_hash": "d94ed7b1969cbdd80d7745bfa8b24f44",
+    "semantic_hash": "d94ed7b1969cbdd80d7745bfa8b24f44"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\class-imf-frontend.php": {
+    "mtime": 1782092590.9966345,
+    "ast_hash": "2f8fe0063389f8b7f92d76d926937427",
+    "semantic_hash": "2f8fe0063389f8b7f92d76d926937427"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\class-imf-rest-api.php": {
+    "mtime": 1782115896.812722,
+    "ast_hash": "6fbaec19111a516e7dd557a0702539f0",
+    "semantic_hash": "6fbaec19111a516e7dd557a0702539f0"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\includes\\helpers.php": {
+    "mtime": 1782112135.4606433,
+    "ast_hash": "eab85dd8f36b9c9680313746a8b95d2e",
+    "semantic_hash": "eab85dd8f36b9c9680313746a8b95d2e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\public\\assets\\js\\app.js": {
+    "mtime": 1782110886.2725668,
+    "ast_hash": "3bdf1d232c5ed290a4dee98a5ea8b051",
+    "semantic_hash": "3bdf1d232c5ed290a4dee98a5ea8b051"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\public\\assets\\js\\chart.umd.min.js": {
+    "mtime": 1782104402.2856357,
+    "ast_hash": "ddb8b0991b8bb5d93eba1b0d2a64cffa",
+    "semantic_hash": "ddb8b0991b8bb5d93eba1b0d2a64cffa"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\public\\index.php": {
+    "mtime": 1782104567.4667006,
+    "ast_hash": "bfee9047366abc54f8a8bb30a0a0b13d",
+    "semantic_hash": "bfee9047366abc54f8a8bb30a0a0b13d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\routes.php": {
+    "mtime": 1782108051.3646276,
+    "ast_hash": "a5c577dccdd7352057e55896dd1c609c",
+    "semantic_hash": "a5c577dccdd7352057e55896dd1c609c"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\sql\\seed.sql": {
+    "mtime": 1782099144.475111,
+    "ast_hash": "72c03d23293c34da3b1ae0e1d6bb8e20",
+    "semantic_hash": "72c03d23293c34da3b1ae0e1d6bb8e20"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\tests\\p5_regression.php": {
+    "mtime": 1782108478.9981265,
+    "ast_hash": "e689f7fa6931da61a088e85f0f6f282c",
+    "semantic_hash": "e689f7fa6931da61a088e85f0f6f282c"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\tests\\p5_unit.php": {
+    "mtime": 1782108562.261194,
+    "ast_hash": "75e7a34cf7eaf540a96267ad60e0f8b4",
+    "semantic_hash": "75e7a34cf7eaf540a96267ad60e0f8b4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\tests\\p7_unit.php": {
+    "mtime": 1782112464.0584085,
+    "ast_hash": "92437c9fa22a6773afac46f147d619b5",
+    "semantic_hash": "92437c9fa22a6773afac46f147d619b5"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\tests\\p8_throttle.php": {
+    "mtime": 1782116286.9073887,
+    "ast_hash": "c8227c96e35d3b0d0c7bd1ecec3e61ad",
+    "semantic_hash": "c8227c96e35d3b0d0c7bd1ecec3e61ad"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\uninstall.php": {
+    "mtime": 1782092590.9986348,
+    "ast_hash": "7d7e4643544ad0027225fdb9d90ddd13",
+    "semantic_hash": "7d7e4643544ad0027225fdb9d90ddd13"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\vendor\\PHPMailer\\src\\Exception.php": {
+    "mtime": 1782107791.3216324,
+    "ast_hash": "23860a10c886298d153fa55a71565ea1",
+    "semantic_hash": "23860a10c886298d153fa55a71565ea1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\vendor\\PHPMailer\\src\\PHPMailer.php": {
+    "mtime": 1782107843.31927,
+    "ast_hash": "64e1dd2df3eb01be1aacd3aa7d9ca670",
+    "semantic_hash": "64e1dd2df3eb01be1aacd3aa7d9ca670"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\vendor\\PHPMailer\\src\\SMTP.php": {
+    "mtime": 1782107817.8022876,
+    "ast_hash": "558aaacbfda022e0176c4181d87aeeb3",
+    "semantic_hash": "558aaacbfda022e0176c4181d87aeeb3"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\alerts.php": {
+    "mtime": 1782110385.6059976,
+    "ast_hash": "da2bf5b168738bd73a585168f56e791f",
+    "semantic_hash": "da2bf5b168738bd73a585168f56e791f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\alumni.php": {
+    "mtime": 1782110403.6222196,
+    "ast_hash": "37364c5ad03beb84c9a9730f2e744245",
+    "semantic_hash": "37364c5ad03beb84c9a9730f2e744245"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\applications\\list.php": {
+    "mtime": 1782110490.208382,
+    "ast_hash": "9b64ba35fbe80de2490e2737705c09f4",
+    "semantic_hash": "9b64ba35fbe80de2490e2737705c09f4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\contacts\\list.php": {
+    "mtime": 1782110467.8600552,
+    "ast_hash": "865fb9183016787da32b947ca5bfbfbd",
+    "semantic_hash": "865fb9183016787da32b947ca5bfbfbd"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\custom-endpoints\\edit.php": {
+    "mtime": 1782110622.3873537,
+    "ast_hash": "aecf04396e9b3a0704751d0294904bb2",
+    "semantic_hash": "aecf04396e9b3a0704751d0294904bb2"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\custom-endpoints\\list.php": {
+    "mtime": 1782110605.980237,
+    "ast_hash": "3584c030ed2b66cf9e3677c6b22fb66f",
+    "semantic_hash": "3584c030ed2b66cf9e3677c6b22fb66f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\custom-endpoints\\submissions.php": {
+    "mtime": 1782110636.4818587,
+    "ast_hash": "862bd85dfe9dce1ce29748699b1ecea3",
+    "semantic_hash": "862bd85dfe9dce1ce29748699b1ecea3"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\dashboard.php": {
+    "mtime": 1782110366.7608666,
+    "ast_hash": "2caf386b0ee5481fc9caefb5a7bbdf95",
+    "semantic_hash": "2caf386b0ee5481fc9caefb5a7bbdf95"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\outbox\\index.php": {
+    "mtime": 1782110430.358042,
+    "ast_hash": "d1a79d9980b6db52ce82bd53d4d875b9",
+    "semantic_hash": "d1a79d9980b6db52ce82bd53d4d875b9"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\profile.php": {
+    "mtime": 1782110702.9805496,
+    "ast_hash": "05a524deabe872b701c460d3552cefb1",
+    "semantic_hash": "05a524deabe872b701c460d3552cefb1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\registrations\\edit.php": {
+    "mtime": 1782110560.7902758,
+    "ast_hash": "9c5ee5b085bf0e010f8d421e32c6edc1",
+    "semantic_hash": "9c5ee5b085bf0e010f8d421e32c6edc1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\registrations\\list.php": {
+    "mtime": 1782110536.4452155,
+    "ast_hash": "7e95c469bcb267a369cc3ce3b08af7cb",
+    "semantic_hash": "7e95c469bcb267a369cc3ce3b08af7cb"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\registrations\\view.php": {
+    "mtime": 1782110587.1354477,
+    "ast_hash": "00971fae1e7daa655086d03e53575b79",
+    "semantic_hash": "00971fae1e7daa655086d03e53575b79"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\settings.php": {
+    "mtime": 1782110748.1683626,
+    "ast_hash": "5d4a59790e28945f52510e7a7d12663f",
+    "semantic_hash": "5d4a59790e28945f52510e7a7d12663f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\users\\edit.php": {
+    "mtime": 1782110682.6412873,
+    "ast_hash": "d56c629efbf29fb179ac212ee9cc0c9d",
+    "semantic_hash": "d56c629efbf29fb179ac212ee9cc0c9d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\admin\\users\\list.php": {
+    "mtime": 1782110667.5977669,
+    "ast_hash": "38de49a7b7674bdd6936002fc2953937",
+    "semantic_hash": "38de49a7b7674bdd6936002fc2953937"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\home.php": {
+    "mtime": 1782110767.6925077,
+    "ast_hash": "0a65ea0ff33ae9b16ca7ad01e6770973",
+    "semantic_hash": "0a65ea0ff33ae9b16ca7ad01e6770973"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\layout\\admin.php": {
+    "mtime": 1782110249.9103703,
+    "ast_hash": "08f9fcf093fac7a380b78217ed7bcc39",
+    "semantic_hash": "08f9fcf093fac7a380b78217ed7bcc39"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\layout\\public.php": {
+    "mtime": 1782110279.8184588,
+    "ast_hash": "51bdcf987f1a0d6949085eb599a1a7d3",
+    "semantic_hash": "51bdcf987f1a0d6949085eb599a1a7d3"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\login.php": {
+    "mtime": 1782110761.0959048,
+    "ast_hash": "fa63e6e4e0385418da459f5f6b1409d1",
+    "semantic_hash": "fa63e6e4e0385418da459f5f6b1409d1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\partials\\chart-canvas.php": {
+    "mtime": 1782110322.2113502,
+    "ast_hash": "1ec3b555faef0a17aa4144e7ac81a25e",
+    "semantic_hash": "1ec3b555faef0a17aa4144e7ac81a25e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\partials\\kpi-card.php": {
+    "mtime": 1782110287.818884,
+    "ast_hash": "43286c371fd7e685c6a831ca0ad58c94",
+    "semantic_hash": "43286c371fd7e685c6a831ca0ad58c94"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\partials\\pagination.php": {
+    "mtime": 1782110311.1170104,
+    "ast_hash": "4b60443e1c884c41a63db79be3da1faa",
+    "semantic_hash": "4b60443e1c884c41a63db79be3da1faa"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\partials\\restore-modal.php": {
+    "mtime": 1782110335.571633,
+    "ast_hash": "4f0253d65d1fd25da433274399665c3e",
+    "semantic_hash": "4f0253d65d1fd25da433274399665c3e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\views\\partials\\table.php": {
+    "mtime": 1782110351.2444112,
+    "ast_hash": "2118e6304f8b7fa2ca2b702591834c05",
+    "semantic_hash": "2118e6304f8b7fa2ca2b702591834c05"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\database-optimizer\\SKILL.md": {
+    "mtime": 1782094612.5779896,
+    "ast_hash": "bc45fc0464ead830531a58f6020b1b1a",
+    "semantic_hash": "bc45fc0464ead830531a58f6020b1b1a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\database-optimizer\\references\\index-strategies.md": {
+    "mtime": 1782094612.5779896,
+    "ast_hash": "21c7d2f52d8f6f098fac2b2af2d0d26c",
+    "semantic_hash": "21c7d2f52d8f6f098fac2b2af2d0d26c"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\database-optimizer\\references\\monitoring-analysis.md": {
+    "mtime": 1782094612.5779896,
+    "ast_hash": "4d8c3a1c276ee54b477e7e5ee9c948bd",
+    "semantic_hash": "4d8c3a1c276ee54b477e7e5ee9c948bd"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\database-optimizer\\references\\mysql-tuning.md": {
+    "mtime": 1782094612.5779896,
+    "ast_hash": "b63b7cad41418691e313cb66ce0f46ef",
+    "semantic_hash": "b63b7cad41418691e313cb66ce0f46ef"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\database-optimizer\\references\\postgresql-tuning.md": {
+    "mtime": 1782094612.5936966,
+    "ast_hash": "4a14ae98b55830e7b4f5a7a01fb48b86",
+    "semantic_hash": "4a14ae98b55830e7b4f5a7a01fb48b86"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\database-optimizer\\references\\query-optimization.md": {
+    "mtime": 1782094612.5936966,
+    "ast_hash": "de22b488d5b25e693f97d52b32331542",
+    "semantic_hash": "de22b488d5b25e693f97d52b32331542"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\frontend-design\\LICENSE.txt": {
+    "mtime": 1782094672.3996446,
+    "ast_hash": "29256199be2a609aac596980ffc11996",
+    "semantic_hash": "29256199be2a609aac596980ffc11996"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\frontend-design\\SKILL.md": {
+    "mtime": 1782094672.3996446,
+    "ast_hash": "f5c3db69b9c6a00578301dd0cbe90253",
+    "semantic_hash": "f5c3db69b9c6a00578301dd0cbe90253"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\SKILL.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "6761852b17f53d045efb6dcf8a74f71d",
+    "semantic_hash": "6761852b17f53d045efb6dcf8a74f71d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\character-sets.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "796ef44f252c38d0325c6017cae10ee3",
+    "semantic_hash": "796ef44f252c38d0325c6017cae10ee3"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\composite-indexes.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "a85f9b8dd2c20161566c2609c884ad97",
+    "semantic_hash": "a85f9b8dd2c20161566c2609c884ad97"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\connection-management.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "e73ade4dbae645bcb481978f0a3f1c56",
+    "semantic_hash": "e73ade4dbae645bcb481978f0a3f1c56"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\covering-indexes.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "df8e40bd15a7ae1416355ee856666ff1",
+    "semantic_hash": "df8e40bd15a7ae1416355ee856666ff1"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\data-types.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "c92c705286107800c175ebf0096ccdc4",
+    "semantic_hash": "c92c705286107800c175ebf0096ccdc4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\deadlocks.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "78e24ca79604241d2613d0561176ae7d",
+    "semantic_hash": "78e24ca79604241d2613d0561176ae7d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\explain-analysis.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "9e40de0e2a1b3d058737db5c977f481d",
+    "semantic_hash": "9e40de0e2a1b3d058737db5c977f481d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\fulltext-indexes.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "5907fb3e84505c1fdc1a6fce082c146f",
+    "semantic_hash": "5907fb3e84505c1fdc1a6fce082c146f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\index-maintenance.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "cdc744f9eabd4ff490604d0a1daafebd",
+    "semantic_hash": "cdc744f9eabd4ff490604d0a1daafebd"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\isolation-levels.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "8f97ccc7245a58c6e26b36239c2e43a4",
+    "semantic_hash": "8f97ccc7245a58c6e26b36239c2e43a4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\json-column-patterns.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "d0005b4079a3ad5fee5894f19072bf07",
+    "semantic_hash": "d0005b4079a3ad5fee5894f19072bf07"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\n-plus-one.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "3d8a26d6c049e48e11408a836a5c5ca4",
+    "semantic_hash": "3d8a26d6c049e48e11408a836a5c5ca4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\online-ddl.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "642f2ce0d66afaaf8a7bfba157492faa",
+    "semantic_hash": "642f2ce0d66afaaf8a7bfba157492faa"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\partitioning.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "1a35665d58a5941e39aed7e8715d69df",
+    "semantic_hash": "1a35665d58a5941e39aed7e8715d69df"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\primary-keys.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "dfc51626f16f2ae265dc1e6a99bdeee4",
+    "semantic_hash": "dfc51626f16f2ae265dc1e6a99bdeee4"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\query-optimization-pitfalls.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "abdf61f88b5624d755ce8895a31fb303",
+    "semantic_hash": "abdf61f88b5624d755ce8895a31fb303"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\replication-lag.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "7a06b7ce1c5596cd59d368877f767a22",
+    "semantic_hash": "7a06b7ce1c5596cd59d368877f767a22"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\mysql\\references\\row-locking-gotchas.md": {
+    "mtime": 1782094549.994175,
+    "ast_hash": "56b962c486c14dc24053b7cb9b280985",
+    "semantic_hash": "56b962c486c14dc24053b7cb9b280985"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\php-pro\\SKILL.md": {
+    "mtime": 1782094712.1692064,
+    "ast_hash": "9a2702158f2f61dd7abcb9022d6adf4d",
+    "semantic_hash": "9a2702158f2f61dd7abcb9022d6adf4d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\php-pro\\references\\async-patterns.md": {
+    "mtime": 1782094712.1692064,
+    "ast_hash": "f17e28b9fc44c4bad771b1198d3a9a03",
+    "semantic_hash": "f17e28b9fc44c4bad771b1198d3a9a03"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\php-pro\\references\\laravel-patterns.md": {
+    "mtime": 1782094712.1702068,
+    "ast_hash": "fc9fecb3b3d24b1ac27991a8ad251f2e",
+    "semantic_hash": "fc9fecb3b3d24b1ac27991a8ad251f2e"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\php-pro\\references\\modern-php-features.md": {
+    "mtime": 1782094712.1712067,
+    "ast_hash": "1df234d1b036de4d50345f397766eea9",
+    "semantic_hash": "1df234d1b036de4d50345f397766eea9"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\php-pro\\references\\symfony-patterns.md": {
+    "mtime": 1782094712.1722069,
+    "ast_hash": "b5b7c012e5690b9f0bc4bba012be8245",
+    "semantic_hash": "b5b7c012e5690b9f0bc4bba012be8245"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\php-pro\\references\\testing-quality.md": {
+    "mtime": 1782094712.1722069,
+    "ast_hash": "a2aefdc6ccca74c783a5ff59ff8d67f0",
+    "semantic_hash": "a2aefdc6ccca74c783a5ff59ff8d67f0"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\CREATION-LOG.md": {
+    "mtime": 1782094773.0006921,
+    "ast_hash": "b7ba553678c10cc2234dc9ae193d5347",
+    "semantic_hash": "b7ba553678c10cc2234dc9ae193d5347"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\SKILL.md": {
+    "mtime": 1782094773.0016963,
+    "ast_hash": "22c76d4a9c6220f5267a296b8975e3da",
+    "semantic_hash": "22c76d4a9c6220f5267a296b8975e3da"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\condition-based-waiting.md": {
+    "mtime": 1782094773.0029628,
+    "ast_hash": "c64d669f2490aa489c514304c9ad46d3",
+    "semantic_hash": "c64d669f2490aa489c514304c9ad46d3"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\defense-in-depth.md": {
+    "mtime": 1782094773.003968,
+    "ast_hash": "002a0c9e8bee8fc29f85d7a434916977",
+    "semantic_hash": "002a0c9e8bee8fc29f85d7a434916977"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\root-cause-tracing.md": {
+    "mtime": 1782094773.003968,
+    "ast_hash": "7e96b2fe346c89d4f2300341529178cc",
+    "semantic_hash": "7e96b2fe346c89d4f2300341529178cc"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\test-academic.md": {
+    "mtime": 1782094773.0049667,
+    "ast_hash": "272ab1d95e755a7ff9479d547168eef9",
+    "semantic_hash": "272ab1d95e755a7ff9479d547168eef9"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\test-pressure-1.md": {
+    "mtime": 1782094773.0049667,
+    "ast_hash": "3d8805e8946e3889d4de0e906af66c47",
+    "semantic_hash": "3d8805e8946e3889d4de0e906af66c47"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\test-pressure-2.md": {
+    "mtime": 1782094773.0049667,
+    "ast_hash": "237f40dfd0b48af48d239ab3af499f7b",
+    "semantic_hash": "237f40dfd0b48af48d239ab3af499f7b"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\systematic-debugging\\test-pressure-3.md": {
+    "mtime": 1782094773.0059662,
+    "ast_hash": "42ea1bd281ca8d837f5dd45143762b95",
+    "semantic_hash": "42ea1bd281ca8d837f5dd45143762b95"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\tailwind-design-system\\SKILL.md": {
+    "mtime": 1782094803.511477,
+    "ast_hash": "384a57bea504a380237844ce7ed2c97f",
+    "semantic_hash": "384a57bea504a380237844ce7ed2c97f"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\tailwind-design-system\\references\\advanced-patterns.md": {
+    "mtime": 1782094803.511477,
+    "ast_hash": "7ea2d54a0d51eeab9d2f736e4193af39",
+    "semantic_hash": "7ea2d54a0d51eeab9d2f736e4193af39"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\tailwind-design-system\\references\\details.md": {
+    "mtime": 1782094803.511477,
+    "ast_hash": "7958065ff65e2eb7c1766125e091c970",
+    "semantic_hash": "7958065ff65e2eb7c1766125e091c970"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1782094687.994432,
+    "ast_hash": "17adc68ab5d9a6824f197be473037741",
+    "semantic_hash": "17adc68ab5d9a6824f197be473037741"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\wordpress-pro\\SKILL.md": {
+    "mtime": 1782094651.0444615,
+    "ast_hash": "108028cf235167e1d2769d6baccc3eff",
+    "semantic_hash": "108028cf235167e1d2769d6baccc3eff"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\wordpress-pro\\references\\gutenberg-blocks.md": {
+    "mtime": 1782094651.0444615,
+    "ast_hash": "1d5719618f217ab44b0b1eeb48fc7ac7",
+    "semantic_hash": "1d5719618f217ab44b0b1eeb48fc7ac7"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\wordpress-pro\\references\\hooks-filters.md": {
+    "mtime": 1782094651.0444615,
+    "ast_hash": "4430104537a13dd283c2528c28bf038a",
+    "semantic_hash": "4430104537a13dd283c2528c28bf038a"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\wordpress-pro\\references\\performance-security.md": {
+    "mtime": 1782094651.0600872,
+    "ast_hash": "737e3353f4078f48767ae31cc43e7e49",
+    "semantic_hash": "737e3353f4078f48767ae31cc43e7e49"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\wordpress-pro\\references\\plugin-architecture.md": {
+    "mtime": 1782094651.061195,
+    "ast_hash": "2542f7b46e9c6f6c714843a2f12d9202",
+    "semantic_hash": "2542f7b46e9c6f6c714843a2f12d9202"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\.agents\\skills\\wordpress-pro\\references\\theme-development.md": {
+    "mtime": 1782094651.0616126,
+    "ast_hash": "428d80fd87e33c71d9d7daf3157cddad",
+    "semantic_hash": "428d80fd87e33c71d9d7daf3157cddad"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\AGENTS.md": {
+    "mtime": 1782098913.1267662,
+    "ast_hash": "1915020ffd0977c1c391d45204581c74",
+    "semantic_hash": "1915020ffd0977c1c391d45204581c74"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\DESIGN.md": {
+    "mtime": 1782109241.9199195,
+    "ast_hash": "5048a4bd580340cb56ab8e6987bd0cd8",
+    "semantic_hash": "5048a4bd580340cb56ab8e6987bd0cd8"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\opencode-chat.md": {
+    "mtime": 1782111198.893452,
+    "ast_hash": "c0f6af5879a46a98a2a4086c47a6c055",
+    "semantic_hash": "c0f6af5879a46a98a2a4086c47a6c055"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\README.md": {
+    "mtime": 1782116345.035538,
+    "ast_hash": "0289622277d4dc31d31d733e01d2a68d",
+    "semantic_hash": "0289622277d4dc31d31d733e01d2a68d"
+  },
+  "C:\\Users\\User\\Documents\\registration-app\\wp-registration-plugin\\wp-content\\plugins\\imedia-registration\\vendor\\PHPMailer\\README.md": {
+    "mtime": 1782107853.585442,
+    "ast_hash": "8732d508762a6f7fc8ea09beccdb4bff",
+    "semantic_hash": "8732d508762a6f7fc8ea09beccdb4bff"
+  }
+}

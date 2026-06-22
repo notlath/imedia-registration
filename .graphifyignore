@@ -1,0 +1,37 @@
+# =============================================================================
+# IMedia Registration — graphify ignore patterns
+# =============================================================================
+# Use .gitignore-style syntax. Patterns are relative to this file's location.
+# The graphify-out/ directory itself is the tool's output and must never be
+# recursively indexed.
+
+# ---- Recursive / output: the tool's own artifacts ----
+/graphify-out/
+
+# ---- 3rd-party / vendored code (no semantic value to index) ----
+/vendor/
+/wp-registration-plugin/vendor/
+/node_modules/
+
+# ---- Runtime data (logs, uploads, cache) ----
+/storage/
+/wp-registration-plugin/storage/
+/public/uploads/
+/wp-registration-plugin/public/uploads/
+
+# ---- Editor / OS clutter (matches .gitignore) ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ---- Opencode / agent state ----
+/.opencode/
+/.agents/
+/opencode-chat.md
+
+# ---- Log files anywhere ----
+*.log
