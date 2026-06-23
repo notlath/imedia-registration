@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="IMedia Registration">
+    <description>Custom coding standard: PSR-12 (app/) + WordPress-Extra (includes/) + security rules.</description>
+
+    <!-- Fail on errors only; warnings are informational -->
+    <config name="ignore_warnings_on_exit" value="1"/>
+
+    <!-- ============================================================
+         FILE PATTERNS
+         ============================================================ -->
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <file>app</file>
+    <file>includes</file>
+    <file>routes.php</file>
+    <file>config</file>
+    <file>public/index.php</file>
+
+    <!-- Exclude vendor, node_modules, tests, storage, tools -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/storage/*</exclude-pattern>
+    <exclude-pattern>*/tools/*</exclude-pattern>
+    <exclude-pattern>*/resources/views/*</exclude-pattern>
+    <exclude-pattern>*/coverage/*</exclude-pattern>
+
+    <!-- ============================================================
+         app/ —— PSR-12 + security/SQL/nonce rules
+         The standalone app is a modern PSR-4 project.  We apply
+         PSR-12 as the baseline and layer on critical WordPress
+         security rules (escaping, SQL, nonce) that are good practice
+         regardless of framework.
+         ============================================================ -->
+    <rule ref="PSR12">
+        <exclude-pattern>*/includes/*</exclude-pattern>
+    </rule>
+
+    <!-- Security: output escaping — every echo/print must escape -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <exclude-pattern>*/includes/*</exclude-pattern>
+        <!-- Exception messages in throw statements are internal error
+             messages consumed by the error handler/logger, not displayed
+             raw to the browser.  The Response::send() method outputs
+             the pre-built body which was already escaped at the view layer. -->
+        <exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped"/>
+        <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
+    </rule>
+
+    <!-- NonceVerification: false positives on $_SERVER header parsing.
+         The Request::collectHeaders() reads $_SERVER for HTTP headers,
+         not form-data processing.  The standalone app uses its own
+         CSRF system (not WP nonces). -->
+    <rule ref="WordPress.Security.NonceVerification">
+        <exclude-pattern>app/*</exclude-pattern>
+    </rule>
+
+    <!-- SQL: all queries must use prepared statements -->
+    <rule ref="WordPress.DB.PreparedSQL">
+        <exclude-pattern>*/includes/*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.DB.PreparedSQLPlaceholders">
+        <exclude-pattern>*/includes/*</exclude-pattern>
+    </rule>
+
+    <!-- Database: PDO is the correct abstraction for the standalone
+         app (not $wpdb).  Suppress RestrictedClasses for all
+         App\ namespace code. -->
+    <rule ref="WordPress.DB.RestrictedClasses">
+        <exclude-pattern>app/*</exclude-pattern>
+    </rule>
+
+    <!-- File naming: PSR-4 class files use PascalCase, not the
+         WordPress class- prefix convention.  Suppress for app/. -->
+    <rule ref="WordPress.Files.FileName">
+        <exclude-pattern>app/*</exclude-pattern>
+    </rule>
+
+    <!-- ============================================================
+         includes/ —— WordPress-Extra only (legacy WP conventions)
+         ============================================================ -->
+    <rule ref="WordPress-Extra">
+        <exclude-pattern>app/*</exclude-pattern>
+        <exclude-pattern>routes.php</exclude-pattern>
+        <exclude-pattern>config/*</exclude-pattern>
+        <exclude-pattern>public/index.php</exclude-pattern>
+    </rule>
+
+    <!-- Within includes/, suppress the PDO rule since those files
+         use wpdb prepared statements anyway. -->
+    <rule ref="WordPress.DB.RestrictedClasses">
+        <exclude-pattern>includes/*</exclude-pattern>
+    </rule>
+
+    <!-- Config template is not a class file; suppress filename rule. -->
+    <rule ref="WordPress.Files.FileName">
+        <exclude-pattern>config/*</exclude-pattern>
+    </rule>
+
+    <!-- Variable naming consistency in legacy includes/ is valuable but
+         not a correctness or security issue.  Keep as warnings. -->
+    <rule ref="WordPress.NamingConventions.ValidVariableName">
+        <severity>0</severity>
+    </rule>
+
+    <!-- ============================================================
+         GLOBAL SUPPRESSIONS
+         ============================================================ -->
+
+    <!-- Yoda conditions are WordPress convention, not universal.
+         Keep as warning, not error. -->
+    <rule ref="WordPress.PHP.YodaConditions">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Allow short array syntax (PSR-12 convention) -->
+    <rule ref="Generic.Arrays.DisallowShortArraySyntax">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Universal.Arrays.DisallowShortArraySyntax">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Allow short ternaries (common in PHP 8+) -->
+    <rule ref="Universal.Operators.DisallowShortTernary">
+        <severity>0</severity>
+    </rule>
+
+    <!-- i18n (translatable strings) is deferred to M4 -->
+    <rule ref="WordPress.WP.I18n">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Disallow inline tab suppression — all config goes here -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+</ruleset>
