@@ -37,7 +37,7 @@ coverage/
 /config/config.php
 
 # ---- Dev-only diagnostic endpoints ----
-/public/debug*.php
+/public/*debug*.php
 
 # ---- PHP runtime artifacts ----
 # Logs (outside of vendor)
