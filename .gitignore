@@ -29,8 +29,9 @@ node_modules/
 .phpunit.cache/
 coverage/
 
-# ---- Distribution build artifact ----
+# ---- Distribution build artifacts ----
 /wp-registration-plugin/
+/dist/registration/
 
 # ---- Local config (DB credentials, HMAC secret) ----
 # config.example.php is committed; real config.php is per-environment.
