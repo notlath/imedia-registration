@@ -3,7 +3,7 @@
 /**
  * IMedia Registration — Front controller.
  *
- * Every HTTP request to the subpath app (/imedia-registration/*) lands here.
+ * Every HTTP request to the subpath app (/registration/*) lands here.
  * public/.htaccess rewrites all non-file paths to this file.
  *
  * Per php-pro: strict types, no globals for app logic.

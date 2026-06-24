@@ -60,7 +60,7 @@ if (!defined('ABSPATH')) exit;
                     </div>
                     <div class="imf-settings-accordion-body">
                         <p class="imf-settings-hint" style="margin-top:0;">
-                            Form submissions are forwarded to a standalone PHP app at <code>/imedia-registration/</code> on this site.
+                            Form submissions are forwarded to a standalone PHP app at <code>/registration/</code> on this site.
                             Each forwarded body is signed with HMAC-SHA256; the standalone app verifies the signature and rejects requests
                             older than 5 minutes (replay protection).
                         </p>
@@ -72,12 +72,12 @@ if (!defined('ABSPATH')) exit;
                                 id="imf_app_url"
                                 name="imf_app_url"
                                 value="<?php echo esc_attr($app_url); ?>"
-                                placeholder="https://www.inventivemedia.com.ph/imedia-registration"
+                                placeholder="https://www.inventivemedia.com.ph/registration"
                                 autocomplete="off"
                                 spellcheck="false" />
                             <p class="imf-settings-hint">
                                 Base URL of the standalone app. Submissions are POSTed to <code>&lt;this&gt;/api/submit</code>.
-                                If blank, the plugin falls back to <code><?php echo esc_html(trailingslashit(home_url())); ?>imedia-registration</code>.
+                                If blank, the plugin falls back to <code><?php echo esc_html(trailingslashit(home_url())); ?>registration</code>.
                             </p>
                         </div>
 

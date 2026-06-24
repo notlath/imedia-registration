@@ -58,21 +58,23 @@ https://www.inventivemedia.com.ph/registration/
 ## Step 5: Configure the Standalone App
 
 1. In **cPanel File Manager**, navigate to `public_html/registration/config/`
-2. Open `config.php` in the editor
-3. Replace the placeholder values:
+2. Copy `config.example.php` to `config.php` (if `config.php` does not already exist)
+3. Open `config.php` in the editor
+4. Replace the placeholder values:
 
 | Setting | Replace with |
 |---------|-------------|
+| `DB_HOST` | Usually `localhost` — the database host from Step 3 |
 | `DB_NAME` | The database name from Step 3 |
 | `DB_USER` | The database user from Step 3 |
 | `DB_PASS` | The database password from Step 3 |
+| `BASE_URL` | Leave as `https://www.inventivemedia.com.ph/registration` |
 | `MAIL_FROM_EMAIL` | Your sender email address |
 
-4. Generate an HMAC secret:
+5. Generate an HMAC secret:
    - In cPanel **Terminal**, run: `php -r "echo bin2hex(random_bytes(32));"`
    - Or use an online hex generator (64 hex characters)
-5. Paste the secret into `config.php`
-6. Save the file
+6. Save the file (the HMAC secret is configured in the admin UI in Step 7, not in `config.php`)
 
 ---
 
@@ -91,8 +93,9 @@ https://www.inventivemedia.com.ph/registration/
 1. Visit the standalone app: `https://www.inventivemedia.com.ph/registration/admin/login`
 2. Log in with the default account: `admin@example.com` / `admin123`
 3. Go to **Users → Edit** and change the password immediately
-4. Go to **Settings → Form routes**
-5. Add a row for each form ID that should forward submissions
+4. Go to **Settings** and set the **HMAC shared secret** to the secret generated in Step 5 — paste the same value that will also go into the WordPress plugin Settings
+5. Go to **Settings → Form routes**
+6. Add a row for each form ID that should forward submissions
 
 ---
 
@@ -113,6 +116,23 @@ https://www.inventivemedia.com.ph/registration/
 4. Submit the form on the frontend
 5. Verify it appears in the standalone app at **Registrations**
 6. Check that the admin notification email was sent
+
+---
+
+## Step 10: Set Up Automatic Email Processing (Optional)
+
+For fully automatic email delivery, add a cPanel cron job to process the outbox every 5 minutes:
+
+1. In **cPanel**, open **Cron Jobs**
+2. Under **Add New Cron Job**, set:
+   - **Common Settings**: `Every 5 minutes`
+   - **Command**:
+     ```
+     /usr/local/bin/php /home/<cpanel-account>/public_html/registration/cron/process-outbox.php >> /home/<cpanel-account>/logs/imreg-outbox.log 2>&1
+     ```
+3. Click **Add New Cron Job**
+
+Replace `<cpanel-account>` with your cPanel username. The cron worker sends queued emails, caps each run at 25 messages, and logs results to `storage/logs/app-YYYY-MM-DD.log`.
 
 ---
 

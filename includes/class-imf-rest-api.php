@@ -113,12 +113,12 @@ class IMF_Rest_API {
 			// Resolve the destination URL. Priority:
 			//   1. Per-form META_API_URL override (legacy).
 			//   2. Global imf_app_url option.
-			//   3. site_url() + '/imedia-registration' (final fallback).
+			//   3. site_url() + '/registration' (final fallback).
 			$per_form_url = is_string( $api_url ) ? trim( $api_url ) : '';
 			$global_url   = (string) get_option( 'imf_app_url', '' );
 			$resolved_url = $per_form_url !== '' ? $per_form_url : (string) $global_url;
 			if ( $resolved_url === '' ) {
-				$resolved_url = trailingslashit( home_url() ) . 'imedia-registration';
+				$resolved_url = trailingslashit( home_url() ) . 'registration';
 			}
 			$submit_url = rtrim( $resolved_url, '/' ) . '/api/submit';
 

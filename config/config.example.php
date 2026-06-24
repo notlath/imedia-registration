@@ -18,7 +18,7 @@ declare(strict_types=1);
 return [
 
     'APP_DEBUG'      => false,                                        // true to show error details (NEVER in prod)
-    'BASE_URL'       => 'https://www.inventivemedia.com.ph/imedia-registration',
+    'BASE_URL'       => 'https://www.inventivemedia.com.ph/registration',
 
     // ----- Database (cPanel MySQL) -----
     'DB_HOST'        => 'localhost',                                  // cPanel: usually 'localhost'
@@ -36,7 +36,8 @@ return [
     'SESSION_SAMESITE' => 'Lax',
 
     // ----- HMAC -----
-    // The shared secret the WordPress plugin signs form-submission bodies with.
+    // The shared secret lives in the `settings` database table and is
+    // configured via the admin UI (Settings > HMAC shared secret).
     // Generate with: php -r "echo bin2hex(random_bytes(32));"
     // Must match: WP Admin > Settings > IMedia Registration > Shared Secret.
 

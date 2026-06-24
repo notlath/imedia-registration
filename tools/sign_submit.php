@@ -36,7 +36,7 @@ $body = json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 $sig = 'sha256=' . hash_hmac('sha256', $body, $secret);
 
 echo json_encode([
-    'url'         => 'http://localhost:8080/imedia-registration/api/submit',
+    'url'         => 'http://localhost:8080/registration/api/submit',
     'method'      => 'POST',
     'headers'     => [
         'Content-Type: application/json',
@@ -44,7 +44,7 @@ echo json_encode([
     ],
     'body'        => $body,
     'curl_command' => sprintf(
-        "curl -v -X POST http://localhost:8080/imedia-registration/api/submit -H 'Content-Type: application/json' -H 'X-IMF-Signature: %s' -d '%s'",
+        "curl -v -X POST http://localhost:8080/registration/api/submit -H 'Content-Type: application/json' -H 'X-IMF-Signature: %s' -d '%s'",
         $sig,
         $body
     ),

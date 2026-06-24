@@ -230,7 +230,7 @@ class IMF_Admin {
 
 			// Phase 7: standalone app URL + shared secret.
 			// imf_app_url — validated as an http(s) URL; empty allowed
-			// (the REST handler falls back to site_url() + '/imedia-registration').
+			// (the REST handler falls back to site_url() + '/registration').
 			// imf_shared_secret — write-only; the form field is type="password"
 			// and we never echo the stored value. Empty input = keep the stored value.
 			$raw_url    = wp_unslash( $_POST['imf_app_url'] ?? '' );

@@ -6,7 +6,7 @@
  * Drains the outbox queue (up to 25 emails, 20s cap). Designed to be
  * invoked from cPanel > Cron Jobs:
  *
- *   /usr/local/bin/php /home/<account>/public_html/imedia-registration/cron/process-outbox.php
+ *   /usr/local/bin/php /home/<account>/public_html/registration/cron/process-outbox.php
  *
  * Recommended cadence: every 5 minutes. The worker is idempotent and
  * safe to run concurrently with the admin "Process outbox now" button

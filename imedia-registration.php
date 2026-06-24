@@ -3,7 +3,7 @@
 /**
  * Plugin Name: IMedia Registration
  * Plugin URI:  https://www.inventivemedia.com.ph/
- * Description: Drag-and-drop form builder for IMedia WordPress. Form submissions are forwarded to a standalone PHP app hosted at /imedia-registration/ on this domain.
+ * Description: Drag-and-drop form builder for IMedia WordPress. Form submissions are forwarded to a standalone PHP app hosted at /registration/ on this domain.
  * Version:     3.0.0
  * Author:      Christian Catuday
  * License:     GPL v2 or later

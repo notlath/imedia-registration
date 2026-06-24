@@ -1,6 +1,6 @@
 # IMedia Registration
 
-**IMedia Registration** is a WordPress form builder plus a standalone PHP admin app. Forms are built and rendered by the WordPress plugin; submissions are forwarded (HMAC-signed) to the admin app at `https://www.inventivemedia.com.ph/imedia-registration/`, which stores them in a separate MySQL database and provides a dashboard, threshold alerts, CSV exports, and the rest of the admin UI.
+**IMedia Registration** is a WordPress form builder plus a standalone PHP admin app. Forms are built and rendered by the WordPress plugin; submissions are forwarded (HMAC-signed) to the admin app at `https://www.inventivemedia.com.ph/registration/`, which stores them in a separate MySQL database and provides a dashboard, threshold alerts, CSV exports, and the rest of the admin UI.
 
 **Version:** 3.0.0 · **Author:** Christian Catuday · **License:** GPL v2 or later · **Plugin URI:** [https://www.inventivemedia.com.ph/](https://www.inventivemedia.com.ph/)
 
@@ -135,7 +135,7 @@ In **cPanel → phpMyAdmin**:
 1. In the plugin folder, copy `config/config.example.php` to `config/config.php`.
 2. Edit `config.php`:
    - `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS` — from step 4.3.
-   - `BASE_URL` — leave as `https://www.inventivemedia.com.ph/imedia-registration`.
+    - `BASE_URL` — leave as `https://www.inventivemedia.com.ph/registration`.
    - Generate the `HMAC` shared secret. In cPanel **Terminal** (or via SSH) run:
      ```
      php -r "echo bin2hex(random_bytes(32));"
@@ -145,8 +145,8 @@ In **cPanel → phpMyAdmin**:
 ### 4.6 Configure the WP plugin
 
 WordPress admin → **IMedia Registration → Settings → Standalone App (HMAC)**:
-- **Registration App URL**: `https://www.inventivemedia.com.ph/imedia-registration`
-  (the plugin appends `/api/submit` itself; if blank, it falls back to `https://<your-site>/imedia-registration`).
+- **Registration App URL**: `https://www.inventivemedia.com.ph/registration`
+  (the plugin appends `/api/submit` itself; if blank, it falls back to `https://<your-site>/registration`).
 - **Shared Secret**: paste the same secret from step 4.5. The field is write-only — leave it blank to keep the stored value.
 - Click **Save Settings**.
 
@@ -162,7 +162,7 @@ If a per-form `_imf_api_endpoint` is set on the IMedia Form CPT (legacy per-form
 
 ### 4.8 Change the default admin password
 
-Log in to the admin app at `https://www.inventivemedia.com.ph/imedia-registration/admin/login` with:
+Log in to the admin app at `https://www.inventivemedia.com.ph/registration/admin/login` with:
 - Email: `admin@example.com`
 - Password: `admin123`
 
@@ -178,7 +178,7 @@ Go to **Users → Edit** and change the email and password.
 3. WP saves a local copy in wp_imf_entries (safety net)
 4. WP builds a JSON body and signs it with HMAC(SECRET, body)
 5. WP POSTs (fire-and-forget) to
-   https://www.inventivemedia.com.ph/imedia-registration/api/submit
+   https://www.inventivemedia.com.ph/registration/api/submit
    with header X-IMF-Signature: sha256=<hmac>
 6. The admin app's HmacVerify middleware accepts the request
 7. SubmitController looks up form_routes for form_id=42
@@ -240,12 +240,7 @@ endpoint deletion cleans up its rows automatically. `DATETIME` (not
 | `settings` | Singleton settings row (id=1) |
 | `login_attempts` | Throttle log (Phase 8) |
 
-Apply migrations in order:
-1. `database/schema.sql` (everything in one go for fresh installs)
-2. `database/migration-005-resume.sql` (additive `registrations.resume_path`)
-3. `database/migration-006-login-throttle.sql` (additive `admins.locked_until` + `login_attempts`)
-
-Each migration is idempotent — re-running it on an already-migrated DB is a no-op.
+For new installations, import only `database/schema.sql` — it contains the complete schema. The migration files (`database/migration-*.sql`) are retained for upgrading older installations; do not apply them on a fresh install.
 
 ### 7.1 Status model
 
@@ -297,7 +292,7 @@ Go to **Outbox** in the admin sidebar. The Queued tab shows pending emails with 
 For fully automatic processing, add a cPanel cron job (every 5 minutes):
 
 ```
-*/5 * * * * /usr/local/bin/php /home/<cpanel-account>/public_html/imedia-registration/cron/process-outbox.php >> /home/<cpanel-account>/logs/imreg-outbox.log 2>&1
+*/5 * * * * /usr/local/bin/php /home/<cpanel-account>/public_html/registration/cron/process-outbox.php >> /home/<cpanel-account>/logs/imreg-outbox.log 2>&1
 ```
 
 The script writes a one-line summary to stdout and logs every run + failure to `storage/logs/app-YYYY-MM-DD.log`.
@@ -461,7 +456,7 @@ For each form, in the builder's **API** section:
 - **API Enabled** — `1` to forward to the standalone app, `0` to keep submissions in WP only.
 - **API Endpoint** — per-form override. If empty, the global **Registration App URL** from Settings is used. Both must speak the same HMAC secret.
 
-If the global URL is empty, the plugin falls back to `https://<your-site>/imedia-registration`.
+If the global URL is empty, the plugin falls back to `https://<your-site>/registration`.
 
 ### 15.6 Embed a form on a page
 
@@ -515,7 +510,7 @@ The standalone app can have user-defined endpoints. From **Settings → Custom e
 
 ## 16. Usage — Standalone admin app
 
-This section walks through the day-to-day operation of the standalone app at `https://www.inventivemedia.com.ph/imedia-registration/`.
+This section walks through the day-to-day operation of the standalone app at `https://www.inventivemedia.com.ph/registration/`.
 
 ### 16.1 First login
 

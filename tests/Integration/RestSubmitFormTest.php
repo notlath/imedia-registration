@@ -323,7 +323,7 @@ class RestSubmitFormTest extends \WP_UnitTestCase
             str_contains($r['url'], '/api/submit')
         ));
         $this->assertNotFalse($forwarded);
-        $this->assertStringContainsString('/imedia-registration/api/submit', $forwarded['url']);
+        $this->assertStringContainsString('/registration/api/submit', $forwarded['url']);
     }
 
     public function test_forward_uses_per_form_url_override(): void
