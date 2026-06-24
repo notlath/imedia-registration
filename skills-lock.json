@@ -37,6 +37,12 @@
       "skillPath": "mysql-best-practices/SKILL.md",
       "computedHash": "02283efa91864ce6f56f542415bd69d9855be1ea33847987b15040394e828c23"
     },
+    "performance": {
+      "source": "addyosmani/web-quality-skills",
+      "sourceType": "github",
+      "skillPath": "skills/performance/SKILL.md",
+      "computedHash": "38e9a28b0a5ce04a9e3bd6e9cfb2e52e4012f0e93d763eb863b15218a7abccd6"
+    },
     "php-best-practices": {
       "source": "asyrafhussin/agent-skills",
       "sourceType": "github",
