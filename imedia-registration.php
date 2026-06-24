@@ -22,6 +22,7 @@ class Imedia_Forms
     const META_APPEARANCE = '_imf_form_appearance';
     const META_EMAIL_SETTINGS = '_imf_email_settings';
     const META_API_ENABLED = '_imf_api_enabled';
+    const META_CANONICAL = '_imf_field_canonical';
     const ENTRIES_TABLE = 'imf_entries';
 
     public static function plugin_dir()
