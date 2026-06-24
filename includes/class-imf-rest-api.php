@@ -109,22 +109,11 @@ class IMF_Rest_API {
 		$api_url     = get_post_meta( $form_id, Imedia_Forms::META_API_URL, true );
 
 		if ( $api_enabled === '1' ) {
-			$clean_data = array();
-			foreach ( $entry_data as $ed ) {
-				$clean_data[ $ed['name'] ] = $ed['value'];
-			}
-
-			// Phase 7: forward to the standalone app with HMAC signing.
-			//
+			// Phase 7+: forward to the standalone app with HMAC signing.
 			// Resolve the destination URL. Priority:
 			//   1. Per-form META_API_URL override (legacy).
 			//   2. Global imf_app_url option.
 			//   3. site_url() + '/imedia-registration' (final fallback).
-			//
-			// The standalone is configured with one shared secret per
-			// installation; any per-form override still uses the global
-			// secret for signing, since per-form secrets were never a
-			// design goal in this phase.
 			$per_form_url = is_string( $api_url ) ? trim( $api_url ) : '';
 			$global_url   = (string) get_option( 'imf_app_url', '' );
 			$resolved_url = $per_form_url !== '' ? $per_form_url : (string) $global_url;
@@ -133,17 +122,101 @@ class IMF_Rest_API {
 			}
 			$submit_url = rtrim( $resolved_url, '/' ) . '/api/submit';
 
-			// Build the body. _imf_timestamp is included inside the signed
-			// payload so the standalone can enforce a freshness window
-			// (replay protection). Use current_time('timestamp') so the
-			// timestamp follows WordPress's configured timezone.
-			$clean_data['_imf_form_id']   = (int) $form_id;
-			$clean_data['_imf_timestamp'] = (int) time();
+			// ---- Field name mapping ----
+			// Map form-builder field names to canonical names per
+			// Submission Contract v1. The canonical list is in priority
+			// order so exact matches always win over contains-matches.
+			$canonical_names = array(
+				'course', 'start_date', 'end_date', 'email', 'mobile',
+				'address', 'subject', 'message', 'position', 'name',
+			);
 
-			// Encode once. We sign the exact bytes we send, then pass the
-			// same string to wp_remote_post. Re-serializing would change
-			// key order or whitespace and invalidate the signature.
-			$body    = wp_json_encode( $clean_data );
+			$canonical_fields = array();
+			$unmapped_fields  = array();
+			$mapping_log      = array();
+
+			foreach ( $entry_data as $ed ) {
+				$name  = $ed['name'];
+				$label = $ed['label'];
+				$val   = $ed['value'];
+				$type  = $ed['type'];
+
+				$resolved = imf_resolve_canonical(
+					array(
+						'name'           => $name,
+						'label'          => $label,
+						'canonical_name' => $ed['canonical_name'] ?? '',
+					),
+					$canonical_names
+				);
+
+				$canonical = $resolved['canonical'];
+				$source    = $resolved['source'];
+
+				if ( $canonical === null ) {
+					$unmapped_fields[ $name ] = $val;
+					$mapping_log[]            = "$name->(null)";
+					continue;
+				}
+
+				// Collision detection — keep first, log warning.
+				if ( array_key_exists( $canonical, $canonical_fields ) ) {
+					error_log(
+						sprintf(
+							'[IMF] Canonical collision on form_id=%d: "%s" already set; '
+							. 'keeping first, ignoring "%s" from field "%s"',
+							$form_id,
+							$canonical,
+							(string) $val,
+							$label
+						)
+					);
+					$mapping_log[] = "$name->{$canonical}(collision)";
+					continue;
+				}
+
+				// Log label-inference discoveries so admins can migrate.
+				if ( $source === 'label_exact' || $source === 'label_contains' ) {
+					error_log(
+						sprintf(
+							'[IMF] Canonical resolved via label inference: form_id=%d field="%s" label="%s" -> "%s" (source=%s)',
+							$form_id,
+							$name,
+							$label,
+							$canonical,
+							$source
+						)
+					);
+				}
+
+				// Conditional date normalization.
+				if ( $type === 'date' && in_array( $canonical, array( 'start_date', 'end_date' ), true ) ) {
+					$val = imf_normalize_date( (string) $val );
+				}
+
+				$canonical_fields[ $canonical ] = $val;
+				$mapping_log[]                  = "$name->{$canonical}($source)";
+			}
+
+			// Log a one-line summary per submission.
+			error_log(
+				sprintf(
+					'[IMF] form_id=%d mappings: %s',
+					$form_id,
+					implode( ', ', $mapping_log )
+				)
+			);
+
+			// ---- Build payload ----
+			// The standalone app expects:
+			//   { "form_id": <int>, "fields": { ... }, "_imf_timestamp": <int> }
+			$payload = array(
+				'form_id'        => (int) $form_id,
+				'fields'         => array_merge( $canonical_fields, $unmapped_fields ),
+				'_imf_timestamp' => (int) time(),
+			);
+
+			$body    = wp_json_encode( $payload );
 			$secret  = (string) get_option( 'imf_shared_secret', '' );
 			$headers = array(
 				'Content-Type' => 'application/json; charset=utf-8',
@@ -172,19 +245,13 @@ class IMF_Rest_API {
 			if ( is_wp_error( $response ) ) {
 				error_log(
 					sprintf(
-						'[IMedia Registration] Forward to standalone failed: %s (form_id=%d, url=%s)',
+						'[IMF] Forward to standalone failed: %s (form_id=%d, url=%s)',
 						$response->get_error_message(),
 						(int) $form_id,
 						$submit_url
 					)
 				);
 			}
-			// When blocking=false, wp_remote_post returns a stub
-			// WP_HTTP_Requests_Response we cannot reliably inspect. We
-			// intentionally do not switch back to blocking=true because a
-			// slow / unreachable standalone would stall the visitor.
-			// Failures are observable via the error_log entries above
-			// and by the absence of a row in the standalone's tables.
 		}
 
 		return rest_ensure_response(

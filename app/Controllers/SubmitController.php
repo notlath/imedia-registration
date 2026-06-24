@@ -28,6 +28,18 @@ use App\Models\{Application, Contact, CustomEndpoint, CustomSubmission, FormRout
 
 final readonly class SubmitController {
     /**
+     * Keys that are reserved at the top level of the JSON body and must
+     * never be treated as field data. Kept in a single place so future
+     * additions don't leak into dynamic_data.
+     */
+    private const RESERVED_KEYS = array(
+        'form_id',
+        '_imf_form_id',
+        '_imf_timestamp',
+        'signature',
+    );
+
+    /**
      * Whitelist of fields that map to typed columns in the registrations table.
      * Anything else from the WP plugin's `$clean_data` goes into dynamic_data.
      */
@@ -62,14 +74,23 @@ final readonly class SubmitController {
     public function handle( Request $req, Response $res ): Response {
         $body = $req->body;
 
-        $formId = (int) ( $body['form_id'] ?? 0 );
+        $formId = (int) ( $body['form_id'] ?? $body['_imf_form_id'] ?? 0 );
         if ($formId <= 0) {
             return $this->error($res, 400, 'invalid_form_id', 'The request is missing a valid form_id.');
         }
 
-        $fields = $body['fields'] ?? null;
+        // Detect legacy vs new payload. New payloads have a "fields" wrapper
+        // and are strictly validated. Legacy flat payloads are accepted with
+        // best-effort storage (everything goes to dynamic_data / whichever
+        // typed columns the keys happen to match).
+        $hasFieldsWrapper = array_key_exists('fields', $body) && is_array($body['fields']);
+        $fields = $hasFieldsWrapper ? $body['fields'] : array_diff_key(
+            $body,
+            array_flip(self::RESERVED_KEYS)
+        );
+        // Ensure $fields is always an array.
         if (! is_array($fields)) {
-            return $this->error($res, 400, 'invalid_fields', 'The request is missing a "fields" object.');
+            $fields = array();
         }
 
         $route = FormRoute::find($formId);
@@ -90,12 +111,16 @@ final readonly class SubmitController {
             );
         }
 
+        if ($fields === array()) {
+            return $this->error($res, 400, 'invalid_fields', 'The request contained no field data.');
+        }
+
         try {
             $newId = match ($route['target_type']) {
-                FormRoute::TARGET_REGISTRATION => $this->insertRegistration($fields),
-                FormRoute::TARGET_CONTACT      => $this->insertContact($fields),
-                FormRoute::TARGET_OJT          => $this->insertApplication($fields, Application::TYPE_OJT),
-                FormRoute::TARGET_TRAINER      => $this->insertApplication($fields, Application::TYPE_TRAINER),
+                FormRoute::TARGET_REGISTRATION => $this->insertRegistration($fields, $hasFieldsWrapper),
+                FormRoute::TARGET_CONTACT      => $this->insertContact($fields, $hasFieldsWrapper),
+                FormRoute::TARGET_OJT          => $this->insertApplication($fields, Application::TYPE_OJT, $hasFieldsWrapper),
+                FormRoute::TARGET_TRAINER      => $this->insertApplication($fields, Application::TYPE_TRAINER, $hasFieldsWrapper),
                 FormRoute::TARGET_CUSTOM       => $this->insertCustom($fields, (string) ( $route['target_slug'] ?? '' )),
                 default                        => null,
             };
@@ -152,14 +177,20 @@ final readonly class SubmitController {
     /**
      * @param array<string, mixed> $fields
      */
-    private function insertRegistration( array $fields ): int {
-        $errors = $this->validateRegistration($fields);
-        if ($errors !== array()) {
-            throw new \InvalidArgumentException($this->formatErrors($errors));
+    private function insertRegistration( array $fields, bool $strict = true ): int {
+        if ($strict) {
+            $errors = $this->validateRegistration($fields);
+            if ($errors !== array()) {
+                throw new \InvalidArgumentException($this->formatErrors($errors));
+            }
+        } else {
+            // Legacy fallback: supply defaults for NOT NULL columns that
+            // the split logic would leave empty (start_date, end_date).
+            $fields['start_date'] ??= date('Y-m-d');
+            $fields['end_date']   ??= date('Y-m-d');
         }
         [$typed, $dynamic] = $this->split($fields, self::REGISTRATION_FIELDS);
         $id = Registration::insert($typed + array( 'dynamic_data' => $dynamic ));
-        // Audit trail — every new registration starts as 'pending'.
         StatusLogger::log(
             StatusHistory::ENTITY_REGISTRATION,
             $id,
@@ -175,10 +206,12 @@ final readonly class SubmitController {
     /**
      * @param array<string, mixed> $fields
      */
-    private function insertContact( array $fields ): int {
-        $errors = $this->validateContact($fields);
-        if ($errors !== array()) {
-            throw new \InvalidArgumentException($this->formatErrors($errors));
+    private function insertContact( array $fields, bool $strict = true ): int {
+        if ($strict) {
+            $errors = $this->validateContact($fields);
+            if ($errors !== array()) {
+                throw new \InvalidArgumentException($this->formatErrors($errors));
+            }
         }
         [$typed, $dynamic] = $this->split($fields, self::CONTACT_FIELDS);
         $id = Contact::insert($typed + array( 'dynamic_data' => $dynamic ));
@@ -197,10 +230,12 @@ final readonly class SubmitController {
     /**
      * @param array<string, mixed> $fields
      */
-    private function insertApplication( array $fields, string $type ): int {
-        $errors = $this->validateApplication($fields);
-        if ($errors !== array()) {
-            throw new \InvalidArgumentException($this->formatErrors($errors));
+    private function insertApplication( array $fields, string $type, bool $strict = true ): int {
+        if ($strict) {
+            $errors = $this->validateApplication($fields);
+            if ($errors !== array()) {
+                throw new \InvalidArgumentException($this->formatErrors($errors));
+            }
         }
         [$typed, $dynamic] = $this->split($fields, self::APPLICATION_FIELDS);
         $id = Application::insert(

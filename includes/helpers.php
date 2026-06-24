@@ -32,6 +32,81 @@ function imf_sanitize_field_value( $value, $type ) {
  * signature covers the full body bytes — the standalone reads the raw
  * body and recomputes the signature with the matching shared secret.
  */
+/**
+ * Resolve a form field's canonical name using the defined priority:
+ *
+ *   1. Explicit canonical_name (set per-field in form builder)
+ *   2. Field name exact match against canonical list
+ *   3. Label exact / contains-match fallback (temporary — logged)
+ *
+ * Returns an array: [ 'canonical' => ?string, 'source' => ?string ]
+ *
+ * The `source` is one of: 'explicit', 'name', 'label_exact',
+ * 'label_contains', or null if no mapping found.
+ *
+ * @param array $field      Must have 'name', 'label' keys; may have 'canonical_name'.
+ * @param array $exactNames List of canonical field names in priority order.
+ * @return array{canonical: string|null, source: string|null}
+ */
+function imf_resolve_canonical( array $field, array $exactNames ): array {
+    // 1. Explicit mapping (set per-field in form builder via META_CANONICAL)
+    $cn = $field['canonical_name'] ?? '';
+    if ( $cn !== '' && in_array( $cn, $exactNames, true ) ) {
+        return array( 'canonical' => $cn, 'source' => 'explicit' );
+    }
+
+    // 2. Field name exact match
+    if ( in_array( $field['name'], $exactNames, true ) ) {
+        return array( 'canonical' => $field['name'], 'source' => 'name' );
+    }
+
+    // 3. Label inference (temporary fallback — logged downstream)
+    $label = strtolower( trim( (string) ( $field['label'] ?? '' ) ) );
+
+    // 3a. Exact label match
+    foreach ( $exactNames as $c ) {
+        if ( $label === $c ) {
+            return array( 'canonical' => $c, 'source' => 'label_exact' );
+        }
+    }
+
+    // 3b. Contains-match (priority-order matters — "course" beats "course code")
+    foreach ( $exactNames as $c ) {
+        $needle = str_replace( '_', ' ', $c ); // start_date => "start date"
+        if ( $needle !== '' && str_contains( $label, $needle ) ) {
+            return array( 'canonical' => $c, 'source' => 'label_contains' );
+        }
+    }
+
+    return array( 'canonical' => null, 'source' => null );
+}
+
+/**
+ * Normalize a date string to YYYY-MM-DD format.
+ *
+ * Accepts: YYYY-MM-DD (passthrough), n/j/Y, m/d/Y, d/m/Y.
+ * If none of the formats match, returns the original value unchanged
+ * so downstream validation can produce a meaningful error.
+ */
+function imf_normalize_date( string $val ): string {
+    if ( preg_match( '/^\d{4}-\d{2}-\d{2}$/', $val ) === 1 ) {
+        return $val;
+    }
+
+    $formats = array( 'n/j/Y', 'm/d/Y', 'd/m/Y' );
+    foreach ( $formats as $fmt ) {
+        $dt = DateTime::createFromFormat( $fmt, $val );
+        if ( $dt !== false ) {
+            $errors = DateTime::getLastErrors();
+            if ( is_array( $errors ) && $errors['warning_count'] === 0 && $errors['error_count'] === 0 ) {
+                return $dt->format( 'Y-m-d' );
+            }
+        }
+    }
+
+    return $val;
+}
+
 function imf_hmac_sign( string $body, string $secret ): string {
 	return 'sha256=' . hash_hmac( 'sha256', $body, $secret );
 }
