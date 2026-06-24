@@ -2,10 +2,6 @@
 /**
  * Settings page view.
  *
- * Phase 6: rewritten on the design system. The 6-section structure is
- * preserved, but the markup now uses .imreg-section / .imreg-field /
- * .imreg-input / .imreg-btn instead of inline styles.
- *
  * @var string  $baseUrl
  * @var array   $settings
  * @var array   $routes
@@ -43,7 +39,7 @@ $errClass = static function (?string $key) use ($errors): string {
     <div class="imreg-flash imreg-flash--error" role="alert" aria-live="assertive"><?= htmlspecialchars($errorMsg, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/settings', ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-section" style="max-width:920px;">
+<form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/settings', ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-section imreg-form-extra-wide">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
 
     <?php $sec = 0; ?>
@@ -65,7 +61,7 @@ $errClass = static function (?string $key) use ($errors): string {
                 <?php endif; ?>
             </div>
             <div class="imreg-field">
-                <label for="alert_threshold" class="imreg-label">Alert threshold <span class="imreg-text-muted" style="font-weight:400;">(confirmed students per slot)</span></label>
+                <label for="alert_threshold" class="imreg-label">Alert threshold <span class="imreg-text-faint">(confirmed students per slot)</span></label>
                 <input id="alert_threshold" name="alert_threshold" type="number" min="1" max="9999" required value="<?= $val('alert_threshold', 9) ?>" class="imreg-input<?= $errClass('alert_threshold') ?>">
                 <?php if (isset($errors['alert_threshold'])): ?>
                     <div class="imreg-error" role="alert"><?= htmlspecialchars($errors['alert_threshold'], ENT_QUOTES, 'UTF-8') ?></div>
@@ -83,7 +79,7 @@ $errClass = static function (?string $key) use ($errors): string {
     </div>
     <div class="imreg-section__body">
         <div class="imreg-field imreg-mb-4">
-            <label class="imreg-flex imreg-items-center imreg-gap-2" style="font-size:0.875rem;">
+            <label class="imreg-checkbox-row">
                 <input type="checkbox" name="email_template_enabled" value="1" class="imreg-checkbox" <?= $bool('email_template_enabled') ? 'checked' : '' ?>>
                 <span>Enabled</span>
             </label>
@@ -108,7 +104,7 @@ $errClass = static function (?string $key) use ($errors): string {
     </div>
     <div class="imreg-section__body">
         <div class="imreg-field imreg-mb-4">
-            <label class="imreg-flex imreg-items-center imreg-gap-2" style="font-size:0.875rem;">
+            <label class="imreg-checkbox-row">
                 <input type="checkbox" name="admin_notification_enabled" value="1" class="imreg-checkbox" <?= $bool('admin_notification_enabled') ? 'checked' : '' ?>>
                 <span>Send a copy of every new submission to the admin email</span>
             </label>
@@ -141,7 +137,7 @@ $errClass = static function (?string $key) use ($errors): string {
     </div>
     <div class="imreg-section__body">
         <div class="imreg-field imreg-mb-4">
-            <label class="imreg-flex imreg-items-center imreg-gap-2" style="font-size:0.875rem;">
+            <label class="imreg-checkbox-row">
                 <input type="checkbox" name="threshold_alert_enabled" value="1" class="imreg-checkbox" <?= $bool('threshold_alert_enabled') ? 'checked' : '' ?>>
                 <span>Send an email when a (course, year, month) slot hits the threshold</span>
             </label>
@@ -188,7 +184,7 @@ $errClass = static function (?string $key) use ($errors): string {
                 <input id="smtp_user" name="smtp_user" value="<?= $val('smtp_user') ?>" class="imreg-input">
             </div>
             <div class="imreg-field">
-                <label for="smtp_pass" class="imreg-label">Password <span class="imreg-text-muted" style="font-weight:400;">(write-only)</span></label>
+                <label for="smtp_pass" class="imreg-label">Password <span class="imreg-text-faint">(write-only)</span></label>
                 <input id="smtp_pass" name="smtp_pass" type="password" autocomplete="new-password" placeholder="(unchanged)" class="imreg-input">
             </div>
             <div class="imreg-field">
@@ -200,26 +196,26 @@ $errClass = static function (?string $key) use ($errors): string {
                 <input id="smtp_from_email" name="smtp_from_email" type="email" value="<?= $val('smtp_from_email') ?>" placeholder="noreply@example.com" class="imreg-input">
             </div>
             <div class="imreg-field imreg-field--full">
-                <label class="imreg-flex imreg-items-center imreg-gap-2" style="font-size:0.875rem;">
+                <label class="imreg-checkbox-row">
                     <input type="checkbox" name="smtp_secure" value="1" class="imreg-checkbox" <?= $bool('smtp_secure') ? 'checked' : '' ?>>
                     <span>Use TLS (smtp_secure)</span>
                 </label>
             </div>
             <div class="imreg-field imreg-field--full">
-                <label for="hmac_shared_secret" class="imreg-label">HMAC shared secret <span class="imreg-text-muted" style="font-weight:400;">(write-only)</span></label>
+                <label for="hmac_shared_secret" class="imreg-label">HMAC shared secret <span class="imreg-text-faint">(write-only)</span></label>
                 <input id="hmac_shared_secret" name="hmac_shared_secret" type="password" autocomplete="new-password" placeholder="(unchanged)" class="imreg-input imreg-input--code">
                 <div class="imreg-help">Must match the value in the WordPress plugin's IMedia Registration → Settings → Shared Secret.</div>
             </div>
         </div>
     </div>
 
-    <div style="padding:1rem 1.5rem;background:var(--color-surface-container-low);border-top:1px solid var(--color-outline-variant);display:flex;justify-content:space-between;align-items:center;gap:0.5rem;flex-wrap:wrap;border-radius:0 0 var(--radius-lg) var(--radius-lg);">
+    <div class="imreg-section-footer">
         <a href="<?= htmlspecialchars($baseUrl . '/admin/outbox', ENT_QUOTES, 'UTF-8') ?>" class="imreg-btn imreg-btn--ghost">View outbox</a>
         <button type="submit" class="imreg-btn imreg-btn--primary">Save settings</button>
     </div>
 </form>
 
-<section class="imreg-section" style="max-width:920px;">
+<section class="imreg-section imreg-form-extra-wide">
     <div class="imreg-section__header">
         <div class="imreg-section__num"><?= ++$sec ?></div>
         <div class="imreg-section__heading">
@@ -234,7 +230,7 @@ $errClass = static function (?string $key) use ($errors): string {
         $cellCb = [null, null, null,
             static function ($r) use ($baseUrl, $csrf) {
                 $id = (int) $r['form_id'];
-                return '<form method="post" action="' . htmlspecialchars($baseUrl . '/admin/form-routes/delete', ENT_QUOTES, 'UTF-8') . '" style="display:inline" data-imreg-confirm="Remove this route?">'
+                return '<form method="post" action="' . htmlspecialchars($baseUrl . '/admin/form-routes/delete', ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Remove this route?">'
                      . '<input type="hidden" name="_csrf" value="' . htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') . '">'
                      . '<input type="hidden" name="form_id" value="' . $id . '">'
                      . '<button type="submit" class="imreg-btn imreg-btn--danger imreg-btn--sm">Remove</button>'
@@ -251,8 +247,8 @@ $errClass = static function (?string $key) use ($errors): string {
         include IMREG_VIEWS_PATH . '/partials/table.php';
         ?>
 
-        <h3 class="imreg-text-display imreg-mt-6" style="font-size:0.9375rem;margin-bottom:0.75rem;">Add route</h3>
-        <form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/form-routes/add', ENT_QUOTES, 'UTF-8') ?>" class="imreg-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) auto;">
+        <h3 class="imreg-heading-md imreg-mt-6">Add route</h3>
+        <form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/form-routes/add', ENT_QUOTES, 'UTF-8') ?>" class="imreg-grid--3-auto">
             <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
             <div class="imreg-field">
                 <label for="fr-form_id" class="imreg-label">Form ID</label>
@@ -269,17 +265,17 @@ $errClass = static function (?string $key) use ($errors): string {
                 </select>
             </div>
             <div class="imreg-field">
-                <label for="fr-target_slug" class="imreg-label">Target slug <span class="imreg-text-muted" style="font-weight:400;">(custom only)</span></label>
+                <label for="fr-target_slug" class="imreg-label">Target slug <span class="imreg-text-faint">(custom only)</span></label>
                 <input id="fr-target_slug" name="target_slug" class="imreg-input">
             </div>
-            <div class="imreg-field" style="justify-content:flex-end;">
+            <div class="imreg-field imreg-flex imreg-items-end">
                 <button type="submit" class="imreg-btn imreg-btn--primary">Add route</button>
             </div>
         </form>
     </div>
 </section>
 
-<section class="imreg-section" style="max-width:920px;">
+<section class="imreg-section imreg-form-extra-wide">
     <div class="imreg-section__header">
         <div class="imreg-section__num"><?= ++$sec ?></div>
         <div class="imreg-section__heading">

@@ -200,6 +200,11 @@
         set(false);
       }
     });
+    document.querySelectorAll('.imreg-nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 768) set(false);
+      });
+    });
   }
 
   // ---------------------------------------------------------------------

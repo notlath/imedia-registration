@@ -26,10 +26,10 @@ if (!empty($filters['search'])) {
     <div class="imreg-flash imreg-flash--success" role="status" aria-live="polite"><?= htmlspecialchars($flash, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<div class="imreg-flex imreg-justify-between imreg-items-center imreg-mb-4 imreg-gap-3" style="flex-wrap:wrap;">
+<div class="imreg-meta-row">
     <div>
-        <h2 class="imreg-text-display" style="font-size:1.25rem;margin:0 0 0.25rem;"><?= htmlspecialchars((string) ($endpoint['name'] ?? ''), ENT_QUOTES, 'UTF-8') ?></h2>
-        <p class="imreg-text-muted imreg-mb-0" style="font-size:0.8125rem;">slug: <code><?= htmlspecialchars((string) ($endpoint['slug'] ?? ''), ENT_QUOTES, 'UTF-8') ?></code></p>
+        <h2 class="imreg-meta-row__title"><?= htmlspecialchars((string) ($endpoint['name'] ?? ''), ENT_QUOTES, 'UTF-8') ?></h2>
+        <p class="imreg-meta-row__subtitle">slug: <code class="imreg-code-inline"><?= htmlspecialchars((string) ($endpoint['slug'] ?? ''), ENT_QUOTES, 'UTF-8') ?></code></p>
     </div>
     <div class="imreg-flex imreg-gap-2">
         <a href="<?= htmlspecialchars($baseUrl . '/admin/custom-endpoints/' . (int) $endpoint['id'] . '/edit', ENT_QUOTES, 'UTF-8') ?>" class="imreg-btn imreg-btn--primary">Edit endpoint</a>
@@ -37,7 +37,7 @@ if (!empty($filters['search'])) {
     </div>
 </div>
 
-<form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar" style="max-width:520px;">
+<form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar imreg-toolbar--narrow">
     <div class="imreg-toolbar__field">
         <label for="s-search" class="imreg-toolbar__label">Search inside data JSON</label>
         <input id="s-search" name="search" type="search" placeholder="Any value…"
@@ -51,18 +51,18 @@ if (!empty($filters['search'])) {
 </form>
 
 <?php if ($rows === []): ?>
-    <div class="imreg-card imreg-text-center" style="border-style:dashed;">
-        <p class="imreg-text-muted imreg-mb-0">No submissions for this endpoint yet.</p>
+    <div class="imreg-card imreg-card--dashed imreg-text-center">
+        <p class="imreg-text-muted imreg-mb-0 imreg-mt-2">No submissions for this endpoint yet.</p>
     </div>
 <?php else: ?>
     <?php foreach ($rows as $sub): ?>
-        <details class="imreg-card" style="margin-bottom:0.5rem;padding:0;">
-            <summary style="padding:0.625rem 0.875rem;cursor:pointer;font-weight:500;list-style:none;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
-                <span class="imreg-text-tabular" style="font-weight:600;">#<?= (int) $sub['id'] ?></span>
-                <span class="imreg-text-muted" style="font-size:0.75rem;"><?= htmlspecialchars((string) $sub['created_at'], ENT_QUOTES, 'UTF-8') ?></span>
+        <details class="imreg-collapse">
+            <summary>
+                <span class="imreg-text-tabular imreg-text-tabular--strong">#<?= (int) $sub['id'] ?></span>
+                <span class="imreg-text-muted imreg-text-faint"><?= htmlspecialchars((string) $sub['created_at'], ENT_QUOTES, 'UTF-8') ?></span>
                 <span class="imreg-badge imreg-badge--tentative"><span class="imreg-sr-only">Status:</span><?= htmlspecialchars((string) $sub['status'], ENT_QUOTES, 'UTF-8') ?></span>
             </summary>
-            <pre class="imreg-text-mono" style="margin:0;padding:0.75rem 0.875rem;background:var(--color-surface-container-low);color:var(--color-fg);border-top:1px solid var(--color-outline-variant);border-bottom-left-radius:var(--radius-lg);border-bottom-right-radius:var(--radius-lg);overflow-x:auto;font-size:0.75rem;line-height:1.5;"><?= htmlspecialchars(json_encode($sub['data'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') ?></pre>
+            <pre><?= htmlspecialchars(json_encode($sub['data'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') ?></pre>
         </details>
     <?php endforeach; ?>
 <?php endif; ?>

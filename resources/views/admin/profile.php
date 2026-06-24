@@ -29,7 +29,7 @@ foreach (['name', 'email'] as $k) {
     <div class="imreg-flash imreg-flash--error" role="alert" aria-live="assertive"><?= htmlspecialchars($errorMsg, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/profile', ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-card" style="max-width:560px;">
+<form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/profile', ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-card imreg-form-narrow">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
 
     <div class="imreg-grid--form">
@@ -49,7 +49,7 @@ foreach (['name', 'email'] as $k) {
         </div>
     </div>
 
-    <h3 class="imreg-text-display" style="font-size:0.9375rem;font-weight:600;margin:1.5rem 0 0.5rem;">Change password <span class="imreg-text-muted" style="font-weight:400;">(optional)</span></h3>
+    <h3 class="imreg-heading-md imreg-mt-6">Change password <span class="imreg-text-faint">(optional)</span></h3>
     <div class="imreg-grid--form">
         <div class="imreg-field">
             <label for="p-current" class="imreg-label">Current password</label>
@@ -59,7 +59,7 @@ foreach (['name', 'email'] as $k) {
             <?php endif; ?>
         </div>
         <div class="imreg-field">
-            <label for="p-new" class="imreg-label">New password <span class="imreg-text-muted" style="font-weight:400;">(at least 8 characters)</span></label>
+            <label for="p-new" class="imreg-label">New password <span class="imreg-text-faint">(at least 8 characters)</span></label>
             <input id="p-new" name="new_password" type="password" autocomplete="new-password" class="imreg-input <?= isset($errors['new_password']) ? 'imreg-input--error' : '' ?>">
             <?php if (isset($errors['new_password'])): ?>
                 <div class="imreg-error" role="alert"><?= htmlspecialchars($errors['new_password'], ENT_QUOTES, 'UTF-8') ?></div>

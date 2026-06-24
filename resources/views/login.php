@@ -7,10 +7,10 @@
 $baseUrl = (string) ($baseUrl ?? '');
 $prefill = (string) ($prefill ?? '');
 ?>
-<section style="max-width:26rem;margin:4rem auto;padding:0 1.5rem;">
-    <div class="imreg-card imreg-anim-slide-up">
-        <h1 class="imreg-text-display" style="font-size:1.5rem;margin:0 0 0.25rem;font-weight:700;letter-spacing:-0.01em;">Sign in</h1>
-        <p class="imreg-text-muted" style="font-size:0.875rem;margin:0 0 1.5rem;">Inventive Media Registration</p>
+<section class="imreg-page imreg-page--narrow imreg-anim-slide-up">
+    <div class="imreg-card">
+        <h1 class="imreg-page-title imreg-page-title--sm">Sign in</h1>
+        <p class="imreg-text-muted imreg-mb-6">Inventive Media Registration</p>
 
         <?php if (is_string($flash) && $flash !== ''): ?>
             <div class="imreg-flash imreg-flash--error" role="alert" aria-live="assertive"><?= htmlspecialchars($flash, ENT_QUOTES, 'UTF-8') ?></div>

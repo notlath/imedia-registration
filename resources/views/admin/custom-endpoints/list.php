@@ -23,9 +23,9 @@ $endpoints = is_array($endpoints ?? null) ? $endpoints : [];
 </div>
 
 <?php if ($endpoints === []): ?>
-    <div class="imreg-card imreg-text-center" style="border-style:dashed;">
-        <p class="imreg-text-muted imreg-mb-0" style="font-size:1rem;">No custom endpoints configured yet.</p>
-        <p class="imreg-text-muted" style="font-size:0.8125rem;margin-top:0.5rem;">Custom endpoints let the WordPress plugin submit to a fully dynamic schema. Create one to get started.</p>
+    <div class="imreg-card imreg-card--dashed imreg-text-center">
+        <p class="imreg-text-muted imreg-mb-0 imreg-mt-2">No custom endpoints configured yet.</p>
+        <p class="imreg-text-muted imreg-mt-2">Custom endpoints let the WordPress plugin submit to a fully dynamic schema. Create one to get started.</p>
     </div>
 <?php else:
     $columns = ['Name', 'Slug', 'Submissions', 'Actions'];
@@ -37,7 +37,7 @@ $endpoints = is_array($endpoints ?? null) ? $endpoints : [];
             $id = (int) $r['id'];
             return '<a href="' . htmlspecialchars($baseUrl . '/admin/custom-endpoints/' . $id . '/edit', ENT_QUOTES, 'UTF-8') . '" class="imreg-btn imreg-btn--ghost imreg-btn--sm">Edit</a> '
                  . '<a href="' . htmlspecialchars($baseUrl . '/admin/custom-endpoints/' . $id . '/submissions', ENT_QUOTES, 'UTF-8') . '" class="imreg-btn imreg-btn--secondary imreg-btn--sm">Submissions</a> '
-                 . '<form method="post" action="' . htmlspecialchars($baseUrl . '/admin/custom-endpoints/' . $id . '/delete', ENT_QUOTES, 'UTF-8') . '" style="display:inline" data-imreg-confirm="Delete this endpoint AND all its submissions? This cannot be undone.">'
+                 . '<form method="post" action="' . htmlspecialchars($baseUrl . '/admin/custom-endpoints/' . $id . '/delete', ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Delete this endpoint AND all its submissions? This cannot be undone.">'
                  . '<input type="hidden" name="_csrf" value="' . htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') . '">'
                  . '<button type="submit" class="imreg-btn imreg-btn--danger imreg-btn--sm">Delete</button>'
                  . '</form>';

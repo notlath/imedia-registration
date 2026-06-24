@@ -44,10 +44,10 @@ $flashErr = $flashErr ?? null;
 
 <?php if ($tab === 'queued'): ?>
     <div class="imreg-card imreg-mb-6">
-        <div class="imreg-flex imreg-justify-between imreg-items-center imreg-gap-3" style="flex-wrap:wrap;">
+        <div class="imreg-flex imreg-justify-between imreg-items-center imreg-gap-3 imreg-flex-wrap">
             <div>
-                <h2 class="imreg-text-display" style="font-size:1rem;font-weight:600;margin:0 0 0.25rem;">Process outbox now</h2>
-                <p class="imreg-text-muted" style="font-size:0.8125rem;margin:0;">Sends up to 25 queued emails, capped at 20 seconds wall-clock. Failed sends are retried (3 attempts total) and then marked <code>failed</code>.</p>
+                <h2 class="imreg-meta-row__title">Process outbox now</h2>
+                <p class="imreg-meta-row__subtitle">Sends up to 25 queued emails, capped at 20 seconds wall-clock. Failed sends are retried (3 attempts total) and then marked <code>failed</code>.</p>
             </div>
             <form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/outbox/process', ENT_QUOTES, 'UTF-8') ?>">
                 <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
@@ -99,8 +99,7 @@ $flashErr = $flashErr ?? null;
             if ($err === '') {
                 return '<span class="imreg-text-muted">—</span>';
             }
-            return '<code style="background:var(--color-error-container);color:var(--color-on-error-container);padding:0.125rem 0.375rem;border-radius:var(--radius-sm);font-size:0.75rem;">'
-                 . htmlspecialchars($err, ENT_QUOTES, 'UTF-8') . '</code>';
+            return '<code class="imreg-code-pill">' . htmlspecialchars($err, ENT_QUOTES, 'UTF-8') . '</code>';
         };
     }
     if ($tab === 'sent') {
@@ -109,7 +108,7 @@ $flashErr = $flashErr ?? null;
     if ($tab === 'failed') {
         $cellCb[] = static function ($r) use ($baseUrl, $csrf) {
             $id = (int) $r['id'];
-            return '<form method="post" action="' . htmlspecialchars($baseUrl . '/admin/outbox/' . $id . '/retry', ENT_QUOTES, 'UTF-8') . '" style="display:inline;" data-imreg-confirm="Re-queue outbox #' . $id . ' and reset its attempts to 0?">'
+            return '<form method="post" action="' . htmlspecialchars($baseUrl . '/admin/outbox/' . $id . '/retry', ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Re-queue outbox #' . $id . ' and reset its attempts to 0?">'
                  . '<input type="hidden" name="_csrf" value="' . htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') . '">'
                  . '<button type="submit" class="imreg-btn imreg-btn--secondary imreg-btn--sm">Re-queue</button>'
                  . '</form>';
@@ -120,6 +119,6 @@ $flashErr = $flashErr ?? null;
     include IMREG_VIEWS_PATH . '/partials/table.php';
 endif; ?>
 
-<p class="imreg-text-muted" style="font-size:0.75rem;margin-top:1rem;">
+<p class="imreg-hint">
     Showing up to 50 rows per tab. For automatic processing, set up a cPanel cron job pointing at <code>cron/process-outbox.php</code> in the plugin folder (see README).
 </p>

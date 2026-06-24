@@ -64,7 +64,7 @@ try {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=JetBrains+Mono&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap">
     <link rel="stylesheet" href="<?= htmlspecialchars($baseUrl . '/assets/css/app.css', ENT_QUOTES, 'UTF-8') ?>">
 
     <script>
@@ -84,7 +84,7 @@ try {
     <div class="imreg-shell" data-sidebar-open="false">
         <div class="imreg-drawer-backdrop" data-imreg-drawer-backdrop></div>
         <aside class="imreg-sidebar" aria-label="Main">
-            <h1 class="imreg-brand">IMedia Registration</h1>
+            <h1 class="imreg-brand"><span class="imreg-brand__mark" aria-hidden="true"></span>IMedia Registration</h1>
             <nav class="imreg-nav" aria-label="Admin navigation">
                 <p class="imreg-nav-group">Overview</p>
                 <ul>

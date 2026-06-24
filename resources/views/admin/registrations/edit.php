@@ -46,7 +46,7 @@ $dynJson    = is_array($dyn) ? json_encode($dyn, JSON_PRETTY_PRINT | JSON_UNESCA
     <div class="imreg-flash imreg-flash--error" role="alert"><?= htmlspecialchars($errorMsg, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<form method="post" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>" enctype="multipart/form-data" novalidate class="imreg-card" style="max-width:880px;">
+<form method="post" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>" enctype="multipart/form-data" novalidate class="imreg-card imreg-form-wide">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
     <input type="hidden" name="reg[id]" value="<?= htmlspecialchars((string) ($id ?? ''), ENT_QUOTES, 'UTF-8') ?>">
 
@@ -109,7 +109,7 @@ $dynJson    = is_array($dyn) ? json_encode($dyn, JSON_PRETTY_PRINT | JSON_UNESCA
             </select>
         </div>
         <div class="imreg-field">
-            <label for="reg-paid-amount" class="imreg-label">Paid amount <span class="imreg-text-muted" style="font-weight:400;">(required for non-pending payments)</span></label>
+            <label for="reg-paid-amount" class="imreg-label">Paid amount <span class="imreg-text-faint">(required for non-pending payments)</span></label>
             <input id="reg-paid-amount" name="reg[paid_amount]" type="number" step="0.01" min="0"
                    value="<?= htmlspecialchars($paidAmount, ENT_QUOTES, 'UTF-8') ?>"
                    class="imreg-input <?= isset($errors['paid_amount']) ? 'imreg-input--error' : '' ?>">
@@ -118,7 +118,7 @@ $dynJson    = is_array($dyn) ? json_encode($dyn, JSON_PRETTY_PRINT | JSON_UNESCA
             <?php endif; ?>
         </div>
         <div class="imreg-field">
-            <label for="reg-paid-at" class="imreg-label">Paid date <span class="imreg-text-muted" style="font-weight:400;">(required for non-pending payments)</span></label>
+            <label for="reg-paid-at" class="imreg-label">Paid date <span class="imreg-text-faint">(required for non-pending payments)</span></label>
             <input id="reg-paid-at" name="reg[paid_at]" type="date"
                    value="<?= htmlspecialchars($paidAt, ENT_QUOTES, 'UTF-8') ?>"
                    class="imreg-input <?= isset($errors['paid_at']) ? 'imreg-input--error' : '' ?>">
@@ -127,7 +127,7 @@ $dynJson    = is_array($dyn) ? json_encode($dyn, JSON_PRETTY_PRINT | JSON_UNESCA
             <?php endif; ?>
         </div>
         <div class="imreg-field imreg-field--full">
-            <label for="reg-remark" class="imreg-label">Remark <span class="imreg-text-muted" style="font-weight:400;">(required for non-pending payments)</span></label>
+            <label for="reg-remark" class="imreg-label">Remark <span class="imreg-text-faint">(required for non-pending payments)</span></label>
             <textarea id="reg-remark" name="reg[remark]" rows="2"
                       class="imreg-textarea <?= isset($errors['remark']) ? 'imreg-input--error' : '' ?>"><?= htmlspecialchars($remark, ENT_QUOTES, 'UTF-8') ?></textarea>
             <?php if (isset($errors['remark'])): ?>
@@ -135,13 +135,13 @@ $dynJson    = is_array($dyn) ? json_encode($dyn, JSON_PRETTY_PRINT | JSON_UNESCA
             <?php endif; ?>
         </div>
         <div class="imreg-field imreg-field--full">
-            <label for="reg-dyn" class="imreg-label">dynamic_data <span class="imreg-text-muted" style="font-weight:400;">(JSON)</span></label>
+            <label for="reg-dyn" class="imreg-label">dynamic_data <span class="imreg-text-faint">(JSON)</span></label>
             <textarea id="reg-dyn" name="reg[dynamic_data]" rows="6" class="imreg-textarea imreg-input--code"><?= htmlspecialchars((string) $dynJson, ENT_QUOTES, 'UTF-8') ?></textarea>
         </div>
         <div class="imreg-field imreg-field--full">
-            <label for="reg-resume" class="imreg-label">Resume <span class="imreg-text-muted" style="font-weight:400;">(PDF, DOC, or DOCX. Max 5 MB.)</span></label>
+            <label for="reg-resume" class="imreg-label">Resume <span class="imreg-text-faint">(PDF, DOC, or DOCX. Max 5 MB.)</span></label>
             <?php if ($resumePath !== ''): ?>
-                <div class="imreg-text-muted" style="font-size:0.75rem;margin-bottom:0.25rem;">
+                <div class="imreg-hint imreg-mb-0">
                     Current: <a href="<?= htmlspecialchars($baseUrl . '/admin/registrations/' . (int) ($id ?? 0) . '/resume', ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><?= htmlspecialchars($resumePath, ENT_QUOTES, 'UTF-8') ?></a>
                 </div>
             <?php endif; ?>

@@ -30,8 +30,8 @@ $exportUrl = $baseUrl . '/admin/export/applications-' . $type . '.csv';
     <div class="imreg-flash imreg-flash--success" role="status" aria-live="polite"><?= htmlspecialchars($flash, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<div class="imreg-flex imreg-justify-between imreg-items-center imreg-gap-3 imreg-mb-4" style="flex-wrap:wrap;">
-    <form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar" style="flex:1;margin-bottom:0;">
+<div class="imreg-meta-row">
+    <form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar imreg-toolbar--inline">
         <div class="imreg-toolbar__field imreg-toolbar__field--narrow">
             <label for="a-status" class="imreg-toolbar__label">Status</label>
             <select id="a-status" name="status" class="imreg-select">
@@ -80,7 +80,7 @@ $cellCb = [
     static function ($r) use ($baseUrl, $csrf, $type) {
         $id = (int) $r['id'];
         $delUrl = $baseUrl . '/admin/applications/' . $type . '/' . $id . '/delete';
-        return '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" style="display:inline" data-imreg-confirm="Move this application to trash?">'
+        return '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Move this application to trash?">'
              . '<input type="hidden" name="_csrf" value="' . htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') . '">'
              . '<button type="submit" class="imreg-btn imreg-btn--danger imreg-btn--sm">Delete</button>'
              . '</form>';

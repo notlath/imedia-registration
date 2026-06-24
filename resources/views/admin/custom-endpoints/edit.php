@@ -45,7 +45,7 @@ foreach (['fieldsJson', 'statusesJson'] as $k) {
     <div class="imreg-flash imreg-flash--error" role="alert"><?= htmlspecialchars($errorMsg, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<form method="post" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-card" style="max-width:760px;">
+<form method="post" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-card imreg-form-xl">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
 
     <div class="imreg-grid--form">
@@ -65,7 +65,7 @@ foreach (['fieldsJson', 'statusesJson'] as $k) {
             <?php endif; ?>
         </div>
         <div class="imreg-field">
-            <label for="ep-icon" class="imreg-label">Icon <span class="imreg-text-muted" style="font-weight:400;">(optional)</span></label>
+            <label for="ep-icon" class="imreg-label">Icon <span class="imreg-text-faint">(optional)</span></label>
             <input id="ep-icon" name="icon" value="<?= htmlspecialchars($icon, ENT_QUOTES, 'UTF-8') ?>" placeholder="table_view" class="imreg-input">
             <div class="imreg-help">Material Icons name (e.g. <code>table_view</code>).</div>
         </div>

@@ -31,7 +31,7 @@ $listUrl = $baseUrl . '/admin/registrations';
     <div class="imreg-flash imreg-flash--error" role="alert" aria-live="assertive"><?= htmlspecialchars($flashError, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr)) auto;">
+<form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar imreg-toolbar--auto-cols">
     <div class="imreg-toolbar__field">
         <label for="f-status" class="imreg-toolbar__label">Status</label>
         <select id="f-status" name="status" class="imreg-select">
@@ -80,16 +80,16 @@ $listUrl = $baseUrl . '/admin/registrations';
     </div>
 </form>
 
-<form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/registrations/bulk-status', ENT_QUOTES, 'UTF-8') ?>" id="imreg-bulk-form" class="imreg-flex imreg-items-center imreg-gap-3 imreg-mb-4" style="flex-wrap:wrap;">
+<form method="post" action="<?= htmlspecialchars($baseUrl . '/admin/registrations/bulk-status', ENT_QUOTES, 'UTF-8') ?>" id="imreg-bulk-form" class="imreg-actions-row">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
     <label for="bulk-status" class="imreg-label">Bulk set status:</label>
-    <select id="bulk-status" name="new_status" class="imreg-select" style="width:auto;display:inline-block;">
+    <select id="bulk-status" name="new_status" class="imreg-select imreg-select--inline">
         <?php foreach ($statuses as $s): ?>
             <option value="<?= htmlspecialchars($s, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars(ucfirst($s), ENT_QUOTES, 'UTF-8') ?></option>
         <?php endforeach; ?>
     </select>
     <button type="submit" class="imreg-btn imreg-btn--secondary">Apply to selected</button>
-    <span class="imreg-text-muted" style="font-size:0.75rem;">(<?= (int) $total ?> total)</span>
+    <span class="imreg-text-muted imreg-text-faint">(<?= (int) $total ?> total)</span>
 </form>
 
 <?php
@@ -130,7 +130,7 @@ $cellCb = [
         $csrfField = '<input type="hidden" name="_csrf" value="' . htmlspecialchars(\App\Core\Csrf::token(), ENT_QUOTES, 'UTF-8') . '">';
         return '<a href="' . htmlspecialchars($viewUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-btn imreg-btn--ghost imreg-btn--sm">View</a> '
              . '<a href="' . htmlspecialchars($editUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-btn imreg-btn--primary imreg-btn--sm">Edit</a> '
-             . '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" style="display:inline" data-imreg-confirm="Soft-delete this registration? It will move to Alumni.">'
+             . '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Soft-delete this registration? It will move to Alumni.">'
              . $csrfField
              . '<button type="submit" class="imreg-btn imreg-btn--danger imreg-btn--sm">Delete</button>'
              . '</form>';

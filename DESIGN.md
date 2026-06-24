@@ -1,165 +1,303 @@
 ---
-name: Vibrant Professionalism
+name: Studio
 colors:
-  surface: '#f8f9fa'
-  surface-dim: '#d9dadb'
-  surface-bright: '#f8f9fa'
-  surface-container-lowest: '#ffffff'
-  surface-container-low: '#f3f4f5'
-  surface-container: '#edeeef'
-  surface-container-high: '#e7e8e9'
-  surface-container-highest: '#e1e3e4'
-  on-surface: '#191c1d'
-  on-surface-variant: '#5a3f47'
-  inverse-surface: '#2e3132'
-  inverse-on-surface: '#f0f1f2'
-  outline: '#8e6f77'
-  outline-variant: '#e2bdc7'
-  surface-tint: '#b90064'
-  primary: '#b90064'
-  on-primary: '#ffffff'
-  primary-container: '#e6007e'
-  on-primary-container: '#ffffff'
-  inverse-primary: '#ffb0c9'
-  secondary: '#00658d'
-  on-secondary: '#ffffff'
-  secondary-container: '#2dbcfe'
-  on-secondary-container: '#004866'
-  tertiary: '#3e5f7f'
-  on-tertiary: '#ffffff'
-  tertiary-container: '#577799'
-  on-tertiary-container: '#fdfcff'
-  error: '#ba1a1a'
-  on-error: '#ffffff'
-  error-container: '#ffdad6'
-  on-error-container: '#93000a'
-  primary-fixed: '#ffd9e2'
-  primary-fixed-dim: '#ffb0c9'
-  on-primary-fixed: '#3e001e'
-  on-primary-fixed-variant: '#8e004b'
-  secondary-fixed: '#c6e7ff'
-  secondary-fixed-dim: '#82cfff'
-  on-secondary-fixed: '#001e2d'
-  on-secondary-fixed-variant: '#004c6b'
-  tertiary-fixed: '#cfe5ff'
-  tertiary-fixed-dim: '#a8caef'
-  on-tertiary-fixed: '#001d34'
-  on-tertiary-fixed-variant: '#274969'
-  background: '#f8f9fa'
-  on-background: '#191c1d'
-  surface-variant: '#e1e3e4'
+  ink: '#0F1419'
+  ink-soft: '#2A323C'
+  ink-muted: '#5A6470'
+  ink-faint: '#8C95A0'
+  paper: '#F4F6F8'
+  vellum: '#FFFFFF'
+  rule: '#D8DDE3'
+  rule-soft: '#E7EAEF'
+  moss: '#1F574D'
+  moss-strong: '#163E37'
+  moss-soft: '#E2EEEB'
+  moss-ink: '#FFFFFF'
+  ember: '#B8541B'
+  ember-strong: '#984211'
+  ember-soft: '#FAE9DD'
+  ember-ink: '#FFFFFF'
+  surface-0: '#FFFFFF'
+  surface-1: '#F4F6F8'
+  surface-2: '#EEF1F4'
+  surface-3: '#E5E9EE'
+  surface-4: '#DDE2E8'
+  success: '#1F574D'
+  warning: '#946311'
+  danger: '#A53223'
+  status-pending-bg: '#FAEFD6'
+  status-pending-fg: '#5C3E0A'
+  status-tentative-bg: '#E0E6EE'
+  status-tentative-fg: '#1F2C42'
+  status-confirm-bg: '#D9E8E4'
+  status-confirm-fg: '#143730'
+  status-forfeit-bg: '#FBE3DE'
+  status-forfeit-fg: '#6E1F12'
+  status-reschedule-bg: '#F4E2C8'
+  status-reschedule-fg: '#5C3E0A'
 typography:
-  headline-lg:
-    fontFamily: Plus Jakarta Sans
-    fontSize: 40px
-    fontWeight: '700'
-    lineHeight: '1.2'
-  headline-lg-mobile:
-    fontFamily: Plus Jakarta Sans
-    fontSize: 32px
-    fontWeight: '700'
-    lineHeight: '1.2'
-  headline-md:
-    fontFamily: Plus Jakarta Sans
-    fontSize: 24px
-    fontWeight: '600'
-    lineHeight: '1.3'
-  body-lg:
-    fontFamily: Inter
-    fontSize: 18px
-    fontWeight: '400'
-    lineHeight: '1.6'
-  body-md:
-    fontFamily: Inter
-    fontSize: 16px
-    fontWeight: '400'
-    lineHeight: '1.5'
-  label-sm:
-    fontFamily: Inter
-    fontSize: 14px
-    fontWeight: '600'
-    lineHeight: '1.2'
-    letterSpacing: 0.05em
-  nav-link:
-    fontFamily: Inter
-    fontSize: 15px
-    fontWeight: '500'
-    lineHeight: normal
+  display:
+    family: Fraunces
+    weight: '600'
+    usage: Headlines, brand, section titles, KPI values
+  body:
+    family: Inter
+    weight: '400'
+    usage: All running text, labels, controls
+  mono:
+    family: JetBrains Mono
+    weight: '400'
+    usage: IDs, timestamps, JSON, code
 rounded:
   sm: 0.25rem
-  DEFAULT: 0.5rem
-  md: 0.75rem
-  lg: 1rem
-  xl: 1.5rem
-  full: 9999px
+  md: 0.375rem
+  lg: 0.625rem
+  xl: 0.75rem
+  pill: 9999px
 spacing:
   container-max: 1200px
+  sidebar-width: 232px
   gutter: 1.5rem
-  margin-x: 2rem
-  stack-sm: 0.75rem
-  stack-md: 1.5rem
-  stack-lg: 3rem
+  rhythm: 0.25rem
+  section-gap: 2.5rem
+motion:
+  fast: 150ms
+  base: 180ms
+  slow: 220ms
+  ease-out: cubic-bezier(0.32, 0.72, 0.32, 1)
+signature:
+  status-marks:
+    - code: PD
+      meaning: pending
+    - code: TT
+      meaning: tentative
+    - code: OK
+      meaning: confirm
+    - code: FX
+      meaning: forfeit
+    - code: RS
+      meaning: reschedule
 ---
+
+## Subject
+
+Inventive Media Registration is a daily-driver admin tool for an educational
+institution's intake pipeline. Admissions staff use it throughout the day to
+triage registrations, review applications, follow up on inquiries, and ship
+emails. The interface optimizes for **information density without overwhelm**
+and **scannable hierarchy under time pressure**.
 
 ## Brand & Style
 
-This design system is built on a foundation of energetic educational empowerment. It balances a corporate, trustworthy structure with high-energy accents to appeal to career-driven individuals looking for modern skills.
-
-The visual style is **Corporate / Modern** with a touch of **High-Contrast** flair. It utilizes a clean white background to let content breathe, while employing a "vibrant-on-dark" navigation scheme to establish authority. The emotional goal is to feel accessible, efficient, and results-oriented.
+This design system is built on a foundation of quiet, workmanlike precision —
+a tool that respects the operator's time. The visual style is **Studio**: a
+contemporary editorial aesthetic that uses a confident variable serif for
+display, a clean humanist sans for body, and a single warm rust accent to
+add humanity without sacrificing calm. The emotional goal is to feel
+**considered, dependable, and quietly distinctive** — not a templated SaaS.
 
 ## Colors
 
-The palette is driven by high-saturation "action" colors against a deep enterprise foundation.
+The palette is driven by a cool slate foundation (`ink`, `paper`) with a
+deep teal-jewel primary (`moss`) and a single warm rust accent (`ember`).
+The 5 named brand colors are:
 
-- **Primary (Magenta):** Used for high-priority calls to action like "Promos" and highlighting key value propositions.
-- **Secondary (Cyan):** Used for secondary actions like "Schedule" and to denote technical or digital categories.
-- **Tertiary (Deep Navy):** Reserved for the global navigation bar and footer to provide a solid, professional frame for the content.
-- **Neutral:** A spectrum of cool grays and off-whites are used for section backgrounds to maintain high legibility and contrast for the vibrant course cards.
+- **ink** `#0F1419` — foreground, deep slate with a cool undertone.
+- **paper** `#F4F6F8` — page background, near-white with a cool tint (NOT cream).
+- **vellum** `#FFFFFF` — highest surface, cards.
+- **rule** `#D8DDE3` — hairline borders, dividers.
+- **moss** `#1F574D` — primary, deep teal-jewel. "Approved", "go", trust without urgency.
+- **ember** `#B8541B` — accent, warm rust. Destructive confirmations, focused state, KPI alert.
+
+**Surface tiers** climb in 3% steps: `paper` → `#EEF1F4` → `#E5E9EE` → `#DDE2E8`.
+This gives depth without weight. Each surface is a token; no one-off hex
+values should appear in components.
+
+**Status colors** are paired for AA contrast and reused across badges,
+status marks, and doughnut chart slices: `pending` ochre, `tentative` slate-blue,
+`confirm` moss-family, `forfeit` brick-rust, `reschedule` amber. All AA
+contrast against their background.
 
 ## Typography
 
-The typography system uses **Plus Jakarta Sans** for headlines to inject a modern, friendly personality into the brand. **Inter** is used for body text and functional labels to ensure maximum clarity and a "tech-first" aesthetic.
+The type system uses **Fraunces** (variable serif) for display, **Inter**
+for body, and **JetBrains Mono** for data.
 
-Hierarchies are strictly enforced through weight changes rather than just size. Navigation items in the dark header utilize medium weights for legibility against the navy background.
+- **Fraunces** is a contemporary variable serif with optical sizing and soft,
+  slightly wonky terminals. Used with restraint — headlines, section titles,
+  KPI numbers, the brand. The optical-size axis and the variable weight axis
+  give the type system range without introducing extra families.
+- **Inter** is the workhorse for all running text, labels, controls, and
+  badges. Optimized for screen reading, neutral without being cold.
+- **JetBrains Mono** is used for IDs, timestamps, JSON payloads, and any
+  numeric display where alignment matters. Tabular figures are enabled on
+  every numeric span via `font-variant-numeric: tabular-nums`.
+
+Hierarchy is enforced through **weight, size, and optical size** together
+— not size alone. Headlines use Fraunces 600 with `font-optical-sizing: auto`
+to pick up the appropriate cut at each size.
 
 ## Layout & Spacing
 
-The design system utilizes a **Fixed Grid** approach for large screens, centering content within a 1200px max-width container. 
-
-- **Grid:** A 12-column system is used for course listings. On desktop, cards typically span 4 columns (3-up) or 6 columns (2-up) depending on the featured status.
-- **Rhythm:** A vertical 8px spacing scale (0.5rem units) ensures consistent gaps between text elements and card components.
-- **Responsive Behavior:** On mobile devices, the margins shrink to 1rem and the grid collapses to a single column (12-span) to ensure readability of the detailed course card imagery.
+- **Grid:** A 12-column system via `auto-fit minmax(...)` grids. Cards
+  typically span 4 columns (3-up) or 6 columns (2-up) on desktop.
+- **Container:** Content is centered within a 1200px max-width.
+- **Sidebar:** 232px wide, sticky on desktop, drawer on mobile (≤768px).
+- **Rhythm:** A 4px base spacing unit. Section gaps are 2.5rem; vertical
+  rhythm between related elements is 1rem–1.5rem.
+- **Responsive:** On mobile, the sidebar becomes a 80vw drawer; cards
+  collapse to single column; horizontal gutters shrink to 1rem.
 
 ## Elevation & Depth
 
-This system favors **Low-Contrast Outlines** and **Tonal Layers** over heavy shadows. 
+This system favors **hairline rules and tonal layering** over heavy shadows.
 
-- **Surface Tiers:** The main background is white, while section dividers or utility bars use a very light gray (#F8F9FA).
-- **Interactive Depth:** Cards use a subtle, 1px light border. Upon hover, a soft, diffused ambient shadow (0px 4px 20px rgba(0,0,0,0.08)) is applied to lift the card, indicating interactivity.
-- **Glassmorphism (Specialized):** The "Chat Now" widget and certain overlay badges use a light backdrop blur with semi-transparent gradients to stand out from the busy graphical backgrounds of the course cards.
+- **Cards:** 1px hairline border, 10px corner radius, no shadow at rest.
+  Hover raises to a soft, diffused `0 1px 2px + 0 6px 16px` shadow.
+- **Modals:** Single `0 16px 32px + 0 4px 8px` shadow tier, reserved for
+  the modal overlay only.
+- **Sticky elements:** 1px solid `rule` below, no shadow.
+- **Surface tiers:** A vertical hierarchy of tints for backgrounds and
+  table headers. No drop shadows on containers.
 
 ## Shapes
 
-The shape language is consistently **Rounded**. This softens the technical nature of the content and makes the interface feel more approachable.
+- **Buttons & inputs:** 6px corner radius — almost square. This signals
+  "tool" rather than "consumer app".
+- **Cards:** 10px corner radius.
+- **Modals:** 12px corner radius.
+- **Badges & pills:** Pill shape (9999px) for status badges and
+  status marks.
+- **Tabs:** 6px top corners only; underline indicator at the active tab.
+- **KPI cards:** 10px corner radius, 2px `ink` rule at the top edge as a
+  signature accent (turns `ember` in the alert variant).
 
-- **Standard Elements:** Buttons and small cards use a 0.5rem radius.
-- **Large Cards:** Course feature cards use a more pronounced 1rem radius to frame their rich imagery.
-- **Pill Shapes:** Primary action buttons in the header ("Promos", "Schedule") utilize a full pill-shape (100px radius) to differentiate them from standard secondary UI elements.
+## Signature Element — Status Marks
+
+The one memorable thing this page is known for: a **2-letter monospaced
+mark in a colored square**, placed immediately before the full status label.
+Like a printer's production mark. Carries meaning even when the badge
+background is invisible.
+
+| Mark | Status      | Background token        |
+|------|-------------|-------------------------|
+| PD   | pending     | `status-pending-bg`     |
+| TT   | tentative   | `status-tentative-bg`   |
+| OK   | confirm     | `status-confirm-bg`     |
+| FX   | forfeit     | `status-forfeit-bg`     |
+| RS   | reschedule  | `status-reschedule-bg`  |
+
+Marks are **semantic and inflexible**. They are always 1.5rem squares, set
+in `JetBrains Mono` 700, 0.625rem. The accompanying label is set in `Inter`
+500. Use the `.imreg-status` / `.imreg-status__mark` / `.imreg-status--{name}`
+classes, not the old `.imreg-badge--{name}` (which is kept for non-status
+pills like the outbox error code).
 
 ## Components
 
 ### Buttons
-- **Primary:** Pill-shaped, magenta background, white text. No border.
-- **Secondary:** Pill-shaped, cyan background, white text. 
-- **Ghost:** White text with no background, used for secondary navigation items.
+- **Primary:** Moss background, vellum text. Used for the main action on a
+  page ("Save", "Edit", "New registration").
+- **Secondary:** Vellum background, 1px rule border, ink text. The default
+  for non-primary actions ("Cancel", "Filter", "Edit" when an adjacent
+  primary exists).
+- **Ghost:** Transparent, ink text. Tertiary actions.
+- **Danger:** Vellum background, 1px danger-soft border, danger text. The
+  default for destructive actions. (Previously danger was always a filled
+  red; the new default is gentler. Use `.imreg-btn--danger-solid` for the
+  rare case where the destructive action is the page's only CTA.)
+- All buttons: 6px corners, 0.5rem/0.875rem padding, 2.25rem min height.
+  Active state: `translateY(0.5px)`. Focus: 2px moss outline, 2px offset.
 
-### Course Cards
-- **Structure:** A container with 1rem rounding, containing high-impact photography/graphics.
-- **Overlays:** Information like "Save up to P1,500" should be displayed on a dark, high-contrast badge within the card to ensure legibility over varying images.
+### Cards
+- 1px rule border, 10px radius, 1.5rem/1.5rem padding. No shadow at rest;
+  soft hover shadow on interactive variants. Header/footer are opt-in via
+  `.imreg-card__header` and `.imreg-card__footer` with 1px rule dividers.
 
-### Navigation
-- **Top Bar:** White background with logo and primary CTA buttons.
-- **Main Nav:** Tertiary (Navy) background with white Inter-based text. Active states are indicated by a change to the secondary cyan color.
+### KPI Cards
+- Same surface as a card plus a 2px `ink` rule at the top. The value is
+  Fraunces 600 at 2.25rem, tabular figures, optical-size auto. Alert
+  variant flips the top rule to `ember` and tints the background.
+
+### Tables
+- 1px rule border on the wrapper, 1px `rule-soft` between rows. The
+  header row uses `surface-1` background, 0.6875rem uppercase labels.
+  Hovering a row tints it `surface-1`. Empty state takes 3rem vertical
+  padding and shows a muted message.
+
+### Tabs
+- Underline pattern. 1px `rule` border under the row, 2px `ember` border
+  on the active tab. The active tab label uses ink color, not moss —
+  moss is reserved for primary actions.
+
+### Modals
+- Native `<dialog>` element (built-in focus trap, Escape-to-close). 12px
+  radius, single shadow tier, 440px max width. Footer uses `surface-1`
+  background and rounds with the modal.
 
 ### Inputs & Fields
-- Should use a 0.5rem radius with a subtle 1px gray border, focusing on a clean, professional appearance.
+- 6px corner radius, 1px rule border, vellum background, 0.5rem/0.75rem
+  padding, 2.25rem min height. Hover deepens the border; focus adds a
+  3px moss-tinted ring and a moss border. Error state uses a danger
+  border + danger ring.
+
+### Pagination
+- Tabular-figure page numbers in `JetBrains Mono`. Active page is filled
+  ink (inverted) rather than moss — moss is reserved for primary action.
+
+### Theme Toggle
+- Three-state cycle: light → dark → auto. Sun and moon SVG icons swap
+  based on the `.dark` class on `<html>`. The toggle is read by
+  `app.js`; the CSS just provides the visual swap.
+
+## Motion
+
+- Standard duration: **180ms** (`var(--motion-base)`). Fast micro-interactions
+  use **150ms**, complex modals use **220ms**.
+- Easing: `cubic-bezier(0.32, 0.72, 0.32, 1)` (snappy ease-out) for enter,
+  `cubic-bezier(0.4, 0, 1, 1)` for exit. Enter faster than exit.
+- KPI cards stagger their entrance: 0ms / 40ms / 80ms / 120ms.
+- `prefers-reduced-motion: reduce` collapses every animation to 0.01ms.
+
+## Dark Mode
+
+Dark mode re-defines the same tokens under `.dark` on `<html>`. The
+JS sets the class before paint to avoid FOUC.
+
+- Background: ink (`#0F1419`). Surfaces tier upward in 4% steps.
+- Moss and ember lift to AA contrast: moss → `#3FA39A`, ember → `#E07A4A`.
+- Rule and outline stay visible (lifted to `#2A323C` / `#5A6470`).
+- Status backgrounds become deeper containers, foregrounds lift to light
+  tints — so the marks and badges remain readable.
+
+## Accessibility
+
+- All text contrast ≥ 4.5:1 (body) / 3:1 (large) on both themes.
+- Focus rings: 2px moss outline with 2px offset on every interactive
+  element, set globally via `:focus-visible`.
+- Skip link is present on every page (`.imreg-skip-link`).
+- `aria-current="page"`, `role="alert"`, `aria-live="polite|assertive"`
+  used correctly throughout the partials and views.
+- Status marks use the `aria-hidden` pattern when paired with a
+  text label (the text is the accessible name).
+- Reduced-motion respected at every animation, transition, and the
+  modal/drawer entrance.
+
+## Filesystem
+
+All icons are **inline SVG**. No icon font. No emoji as icons. The
+theme toggle, the sidebar hamburger, and the search/filter affordances
+all use 1.5px-stroke SVGs sized to 1.125rem.
+
+## JS Contract
+
+`public/assets/js/app.js` reads specific CSS custom properties for chart
+palette injection. The Studio system keeps these variable names stable:
+
+- `--color-primary`, `--color-secondary`, `--color-tertiary`
+- `--color-on-surface`, `--color-outline-variant`
+- `--color-surface-container-lowest`
+- `--color-status-{pending,tentative,confirm,forfeit,reschedule}-{bg,fg}`
+
+New components should consume the new tokens (`--color-moss`, `--color-ink`,
+etc.) directly. The legacy variables are aliases kept for the JS contract.

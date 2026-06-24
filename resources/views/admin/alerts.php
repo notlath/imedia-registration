@@ -19,13 +19,13 @@ $monthNames = [1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 =>
     <div class="imreg-flash imreg-flash--success" role="status" aria-live="polite"><?= htmlspecialchars($flash, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<div class="imreg-card imreg-mb-6">
-    <div class="imreg-text-muted" style="font-size:0.875rem;">Current threshold (from <a href="<?= htmlspecialchars($baseUrl . '/admin/settings', ENT_QUOTES, 'UTF-8') ?>">Settings</a>):</div>
-    <div class="imreg-text-display" style="font-size:2.25rem;font-weight:700;line-height:1;margin-top:0.5rem;font-variant-numeric:tabular-nums;"><?= $threshold ?></div>
-    <div class="imreg-text-muted" style="font-size:0.8125rem;margin-top:0.5rem;">Confirmed students per (course, year, month) before the alert fires.</div>
+<div class="imreg-card imreg-form-narrow imreg-mb-6">
+    <div class="imreg-readout__label">Current threshold (from <a href="<?= htmlspecialchars($baseUrl . '/admin/settings', ENT_QUOTES, 'UTF-8') ?>">Settings</a>)</div>
+    <div class="imreg-figure-md imreg-mt-2"><?= $threshold ?></div>
+    <div class="imreg-hint">Confirmed students per (course, year, month) before the alert fires.</div>
 </div>
 
-<h2 class="imreg-text-display" style="font-size:1.125rem;margin:0 0 0.75rem;">At or over threshold</h2>
+<h2 class="imreg-heading-md">At or over threshold</h2>
 <?php if ($slots === []): ?>
     <p class="imreg-text-muted">No slots are at or over the threshold right now. As soon as the <?= $threshold ?><sup>th</sup> student confirms for a (course, year, month), it will appear here.</p>
 <?php else:
@@ -52,7 +52,7 @@ $monthNames = [1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 =>
     include IMREG_VIEWS_PATH . '/partials/table.php';
 endif; ?>
 
-<h2 class="imreg-text-display" style="font-size:1.125rem;margin:2rem 0 0.75rem;">Recent alert emails (queued)</h2>
+<h2 class="imreg-heading-md imreg-mt-10">Recent alert emails (queued)</h2>
 <?php if ($sent === []): ?>
     <p class="imreg-text-muted">No alerts have been queued yet.</p>
 <?php else:

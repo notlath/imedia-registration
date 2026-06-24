@@ -40,7 +40,7 @@ foreach (['name', 'email', 'role'] as $k) {
     <div class="imreg-flash imreg-flash--error" role="alert"><?= htmlspecialchars($errorMsg, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<form method="post" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-card" style="max-width:640px;">
+<form method="post" action="<?= htmlspecialchars($action, ENT_QUOTES, 'UTF-8') ?>" novalidate class="imreg-card imreg-form-max">
     <input type="hidden" name="_csrf" value="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>">
 
     <div class="imreg-grid--form">
@@ -60,7 +60,7 @@ foreach (['name', 'email', 'role'] as $k) {
         </div>
         <div class="imreg-field">
             <label for="u-role" class="imreg-label">Role</label>
-            <select id="u-role" name="role" <?= $isSelf ? 'disabled' : '' ?> class="imreg-select <?= $isSelf ? 'imreg-input--error' : '' ?>" style="<?= $isSelf ? 'opacity:0.6;cursor:not-allowed;' : '' ?>">
+            <select id="u-role" name="role" <?= $isSelf ? 'disabled' : '' ?> class="imreg-select <?= $isSelf ? 'imreg-input--error' : '' ?>">
                 <?php foreach ($roles as $r): ?>
                     <option value="<?= htmlspecialchars($r, ENT_QUOTES, 'UTF-8') ?>" <?= $role === $r ? 'selected' : '' ?>>
                         <?= htmlspecialchars(ucfirst($r), ENT_QUOTES, 'UTF-8') ?>
@@ -75,7 +75,7 @@ foreach (['name', 'email', 'role'] as $k) {
             <?php endif; ?>
         </div>
         <div class="imreg-field imreg-field--full">
-            <label for="u-password" class="imreg-label">Password <span class="imreg-text-muted" style="font-weight:400;">(<?= $mode === 'create' ? 'required, at least 8 characters' : 'leave blank to keep current' ?>)</span></label>
+            <label for="u-password" class="imreg-label">Password <span class="imreg-text-faint">(<?= $mode === 'create' ? 'required, at least 8 characters' : 'leave blank to keep current' ?>)</span></label>
             <input id="u-password" name="password" type="password" autocomplete="new-password" <?= $mode === 'create' ? 'required' : '' ?> class="imreg-input <?= isset($errors['password']) ? 'imreg-input--error' : '' ?>">
             <?php if (isset($errors['password'])): ?>
                 <div class="imreg-error" role="alert"><?= htmlspecialchars($errors['password'], ENT_QUOTES, 'UTF-8') ?></div>

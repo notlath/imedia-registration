@@ -30,8 +30,8 @@ $listUrl = $baseUrl . '/admin/contacts';
     <div class="imreg-flash imreg-flash--error" role="alert" aria-live="assertive"><?= htmlspecialchars($flashError, ENT_QUOTES, 'UTF-8') ?></div>
 <?php endif; ?>
 
-<div class="imreg-flex imreg-justify-between imreg-items-center imreg-gap-3 imreg-mb-4" style="flex-wrap:wrap;">
-    <form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar" style="flex:1;margin-bottom:0;">
+<div class="imreg-meta-row">
+    <form method="get" action="<?= htmlspecialchars($listUrl, ENT_QUOTES, 'UTF-8') ?>" class="imreg-toolbar imreg-toolbar--inline">
         <div class="imreg-toolbar__field imreg-toolbar__field--narrow">
             <label for="c-status" class="imreg-toolbar__label">Status</label>
             <select id="c-status" name="status" class="imreg-select">
@@ -75,7 +75,7 @@ $cellCb = [
     static function ($r) use ($baseUrl, $csrf) {
         $id = (int) $r['id'];
         $delUrl = $baseUrl . '/admin/contacts/' . $id . '/delete';
-        return '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" style="display:inline" data-imreg-confirm="Move this contact to trash?">'
+        return '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Move this contact to trash?">'
              . '<input type="hidden" name="_csrf" value="' . htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') . '">'
              . '<button type="submit" class="imreg-btn imreg-btn--danger imreg-btn--sm">Delete</button>'
              . '</form>';

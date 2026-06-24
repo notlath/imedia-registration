@@ -14,7 +14,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=JetBrains+Mono&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap">
     <link rel="stylesheet" href="<?= htmlspecialchars($baseUrl . '/assets/css/app.css', ENT_QUOTES, 'UTF-8') ?>">
 
     <script>
@@ -30,12 +30,12 @@
 </head>
 <body>
     <a class="imreg-skip-link" href="#imreg-main">Skip to main content</a>
-    <main id="imreg-main" tabindex="-1" class="imreg-flex-col" style="min-height:100dvh;">
+    <main id="imreg-main" tabindex="-1" class="imreg-flex-col imreg-public-main">
         <?= $__content ?>
     </main>
-    <footer style="padding:1.5rem 1rem;text-align:center;color:var(--color-on-surface-variant);font-size:0.875rem;border-top:1px solid var(--color-outline-variant);">
+    <footer class="imreg-public-footer">
         Powered by Inventive Media &middot;
-        <a href="<?= htmlspecialchars($baseUrl . '/admin/login', ENT_QUOTES, 'UTF-8') ?>" style="color:inherit;">Admin sign-in</a>
+        <a href="<?= htmlspecialchars($baseUrl . '/admin/login', ENT_QUOTES, 'UTF-8') ?>">Admin sign-in</a>
     </footer>
     <script src="<?= htmlspecialchars($baseUrl . '/assets/js/app.js', ENT_QUOTES, 'UTF-8') ?>" defer></script>
 </body>

@@ -31,7 +31,7 @@ $thresholdCount = count($thresholdSlots);
         <div>
             <strong>Threshold reached.</strong>
             <?= count($thresholdSlots) ?> course slot<?= count($thresholdSlots) === 1 ? ' is' : 's are' ?> at or over the alert threshold.
-            <a href="<?= htmlspecialchars($baseUrl . '/admin/alerts', ENT_QUOTES, 'UTF-8') ?>" style="color:inherit;text-decoration:underline;margin-left:0.5rem;">View alerts</a>
+            <a href="<?= htmlspecialchars($baseUrl . '/admin/alerts', ENT_QUOTES, 'UTF-8') ?>" class="imreg-banner__link">View alerts</a>
         </div>
     </div>
 <?php endif; ?>

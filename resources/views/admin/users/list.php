@@ -45,11 +45,11 @@ $cellCb = [
         $delUrl    = $baseUrl . '/admin/users/' . $id . '/delete';
         $btn = '<a href="' . htmlspecialchars($editUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-btn imreg-btn--ghost imreg-btn--sm">Edit</a> ';
         if ($isSelf) {
-            $btn .= '<span class="imreg-btn imreg-btn--sm imreg-btn--ghost" style="text-decoration:line-through;cursor:not-allowed;opacity:0.5;" title="You cannot delete your own account.">Delete</span>';
+            $btn .= '<span class="imreg-btn imreg-btn--sm imreg-btn--ghost imreg-btn--disabled-look" title="You cannot delete your own account.">Delete</span>';
         } elseif ($isLastOne) {
-            $btn .= '<span class="imreg-btn imreg-btn--sm imreg-btn--ghost" style="text-decoration:line-through;cursor:not-allowed;opacity:0.5;" title="Cannot delete the last admin.">Delete</span>';
+            $btn .= '<span class="imreg-btn imreg-btn--sm imreg-btn--ghost imreg-btn--disabled-look" title="Cannot delete the last admin.">Delete</span>';
         } else {
-            $btn .= '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" style="display:inline" data-imreg-confirm="Delete this admin?">'
+            $btn .= '<form method="post" action="' . htmlspecialchars($delUrl, ENT_QUOTES, 'UTF-8') . '" class="imreg-form-inline" data-imreg-confirm="Delete this admin?">'
                   . '<input type="hidden" name="_csrf" value="' . htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') . '">'
                   . '<button type="submit" class="imreg-btn imreg-btn--danger imreg-btn--sm">Delete</button>'
                   . '</form>';
