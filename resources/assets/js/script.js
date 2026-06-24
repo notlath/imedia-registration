@@ -494,12 +494,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            /* ---- Guard: No API URL configured ---- */
+            /* ---- Guard: No per-form API URL — PHP will use global setting or skip ---- */
             if (!apiUrl) {
-                messageEl.className = 'imf-form-message error';
-                messageEl.textContent = 'This form has no API endpoint configured. Please contact the site administrator.';
-                messageEl.style.display = 'block';
-                return;
+                console.warn('IMedia Forms: No per-form API endpoint configured. Server will fall back to global setting.');
             }
 
             /* ---- reCAPTCHA Check ---- */
