@@ -7,7 +7,7 @@
 -- Both are additive; existing rows are untouched.
 
 ALTER TABLE admins
-    ADD COLUMN locked_until DATETIME NULL DEFAULT NULL AFTER last_login_at;
+    ADD COLUMN locked_until DATETIME NULL DEFAULT NULL AFTER updated_at;
 
 CREATE TABLE IF NOT EXISTS login_attempts (
     id         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,

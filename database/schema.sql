@@ -15,15 +15,30 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- 1. Admins — application users (separate from WordPress wp_users)
 -- =============================================================================
 CREATE TABLE IF NOT EXISTS `admins` (
-  `id`         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name`       VARCHAR(255)    NOT NULL,
-  `email`      VARCHAR(255)    NOT NULL,
-  `password`   VARCHAR(255)    NOT NULL COMMENT 'bcrypt',
-  `role`       ENUM('admin','super') NOT NULL DEFAULT 'admin',
-  `created_at` DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id`           BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name`         VARCHAR(255)    NOT NULL,
+  `email`        VARCHAR(255)    NOT NULL,
+  `password`     VARCHAR(255)    NOT NULL COMMENT 'bcrypt',
+  `role`         ENUM('admin','super') NOT NULL DEFAULT 'admin',
+  `created_at`   DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at`   DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `locked_until` DATETIME        DEFAULT NULL COMMENT 'login throttling; NULL = not locked',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_admins_email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- =============================================================================
+-- 1b. Login attempts — rolling-window throttle log
+-- =============================================================================
+CREATE TABLE IF NOT EXISTS `login_attempts` (
+  `id`         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ip`         VARBINARY(16)   NOT NULL,                     -- inet_pton() / inet_ntop()
+  `email`      VARCHAR(190)    NOT NULL,
+  `success`    TINYINT(1)      NOT NULL,                     -- 1 = success (clears prior failures), 0 = failure
+  `created_at` DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_login_attempts_ip_time`   (`ip`, `created_at`),
+  KEY `idx_login_attempts_email_time` (`email`, `created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- =============================================================================
