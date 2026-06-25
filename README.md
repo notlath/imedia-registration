@@ -50,13 +50,22 @@ imedia-registration/
 ├── uninstall.php                  Fires on plugin uninstall
 ├── routes.php                     Standalone-app route table
 ├── README.md                      This document
+├── INSTALLATION.md                Standalone deployment guide
+├── DESIGN.md                      Design system (Studio) source of truth
+├── AGENTS.md                      LLM coding guidelines
+├── composer.json                  Dependency declaration
+├── composer.lock                  Locked dependency versions
+├── skills-lock.json               Skill lock file
+├── phpcs.dist.xml                 PHP_CodeSniffer config
+├── phpunit.xml.dist               PHPUnit config
 │
 ├── app/                           Standalone app — modern PHP
 │   ├── Controllers/               HTTP entry points (one per resource)
 │   ├── Models/                    Data access objects
 │   ├── Services/                  Mailer, file storage, stats, outbox worker
-│   ├── Core/                      Bootstrap, Router, Request, Response, Session,
-│   │                              Auth, Database, Logger, View, Csrf, Hmac
+│   ├── Core/                      Bootstrap, Config, Router, Request, Response,
+│   │                              Session, Auth, Database, Logger, View, Csrf,
+│   │                              Hmac, PhpmailerLoader
 │   └── Middleware/                AdminAuth, CsrfVerify, HmacVerify
 │
 ├── includes/                      WordPress integration layer
@@ -78,8 +87,18 @@ imedia-registration/
 │       ├── layouts/               public.php, admin.php — used by the standalone app
 │       ├── partials/              table.php, pagination.php, kpi-card.php,
 │       │                          chart-canvas.php, restore-modal.php
-│       ├── admin/                 Standalone-app admin pages (registrations, users,
-│       │                          contacts, applications, custom-endpoints, outbox, …)
+│       ├── admin/                 Standalone-app admin pages
+│       │   ├── registrations/     list.php, view.php, edit.php
+│       │   ├── users/             list.php, edit.php
+│       │   ├── contacts/          list.php
+│       │   ├── applications/      list.php
+│       │   ├── custom-endpoints/  list.php, edit.php, submissions.php
+│       │   ├── outbox/            index.php
+│       │   ├── alumni.php
+│       │   ├── alerts.php
+│       │   ├── dashboard.php
+│       │   ├── profile.php
+│       │   └── settings.php
 │       ├── login.php              Standalone-app login form
 │       └── home.php               Standalone-app home stub
 │
@@ -97,8 +116,13 @@ imedia-registration/
 │   └── uploads/                   Resume files land here
 ├── storage/                       Runtime data
 │   └── logs/                      app-YYYY-MM-DD.log (gitignored)
-├── tests/                         p5_*, p7_*, p8_* smoke tests
-└── vendor/                        PHPMailer 6.x source (manual, no Composer)
+├── tests/                         PHPUnit test suites (Unit/, Integration/, Regression/)
+├── vendor/                        Composer dependencies (gitignored; run `composer install`)
+├── dist/                          Build artifacts (plugin.zip, standalone.zip)
+├── docs/                          BUILD.md, SUBMISSION_CONTRACT.md
+├── tools/                         build-dist.sh, sign_submit.php
+├── scripts/                       build-standalone.sh, test-forward.php
+└── graphify-out/                  Knowledge graph (cache + reports)
 ```
 
 ---
@@ -136,11 +160,11 @@ In **cPanel → phpMyAdmin**:
 2. Edit `config.php`:
    - `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS` — from step 4.3.
     - `BASE_URL` — leave as `https://www.inventivemedia.com.ph/registration`.
-   - Generate the `HMAC` shared secret. In cPanel **Terminal** (or via SSH) run:
+   - Generate the HMAC shared secret. In cPanel **Terminal** (or via SSH) run:
      ```
      php -r "echo bin2hex(random_bytes(32));"
      ```
-     Paste the result into `HMAC_ALGO` and the WP plugin's Shared Secret (step 4.6).
+     The secret is not stored in `config.php` — it is configured in the admin UI's **Settings → HMAC shared secret** (step 4.7). Paste the same value into the WP plugin's Shared Secret (step 4.6).
 
 ### 4.6 Configure the WP plugin
 
@@ -154,13 +178,17 @@ The plugin will then sign every forwarded body with HMAC-SHA256 of the exact bod
 
 > **Known limitation:** WP options (including `imf_shared_secret`) are stored in the `wp_options` table as plain text. They are not encrypted at rest. The threat model assumes anyone with DB read access can read the secret — but the secret only matters for an attacker who is on a different host and can forge requests without DB access. The signature on every request is what actually protects the data.
 
-### 4.7 Map form IDs to targets
+### 4.7 Configure HMAC in the admin app
+
+Log in to the admin app (`/admin/login`) with the default account (step 4.8). Go to **Settings → HMAC shared secret** and paste the same secret generated in step 4.5. Save. The standalone app will now verify signatures using this secret.
+
+### 4.8 Map form IDs to targets
 
 The WP plugin only knows the global **Registration App URL**. The standalone side's **Settings → Form routes** table decides where each `form_id`'s submissions go (registration, contact, OJT, trainer, or a custom endpoint). For each IMedia Form CPT in the new app, add a row: `form_id → target_type` (and `target_slug` if the type is `custom`).
 
 If a per-form `_imf_api_endpoint` is set on the IMedia Form CPT (legacy per-form override), the WP plugin forwards to that URL **but still signs with the global secret** — so the destination must be a standalone that knows the same secret. If you want a form to bypass HMAC forwarding entirely, set `_imf_api_enabled` to `0` on that form.
 
-### 4.8 Change the default admin password
+### 4.9 Change the default admin password
 
 Log in to the admin app at `https://www.inventivemedia.com.ph/registration/admin/login` with:
 - Email: `admin@example.com`
@@ -207,7 +235,7 @@ Go to **Users → Edit** and change the email and password.
 | `/admin/alerts` | Course slots at/over threshold |
 | `/admin/registrations` | List / create |
 | `/admin/registrations/{id}` | View / edit / history / delete / restore |
-| `/admin/courses` | Grouped (course, year, month) view |
+| `/admin/outbox` | Email queue (queued / failed / sent) |
 | `/admin/alumni` | Soft-deleted rows, with restore |
 | `/admin/contacts` | Contact inquiries |
 | `/admin/applications/ojt` | OJT applications |
@@ -333,7 +361,7 @@ Settings (in the `settings` row, editable via direct SQL or a future admin form)
 
 The admin app uses a hand-written design system in `public/assets/css/app.css`. No build step, no Tailwind, no bundler. The CSS file is what ships.
 
-**Color source:** `DESIGN.md` "Vibrant Professionalism" — magenta `#b90064` for primary CTAs, cyan `#00658d` for secondary actions, navy `#3e5f7f` for the sidebar/topbar, white and cool grays for surfaces, `Plus Jakarta Sans` for headings, `Inter` for body, `JetBrains Mono` for data tables.
+**Color source:** `DESIGN.md` "Studio" — deep teal-jewel `#1F574D` (moss) for primary CTAs, warm rust `#B8541B` (ember) for accent, deep slate `#0F1419` (ink) for foreground, cool near-white `#F4F6F8` (paper) for page background, `#FFFFFF` (vellum) for card surfaces.
 
 **Dark mode:** OS preference by default, with a manual override (light / dark / auto) via the topbar toggle. The choice is stored in `localStorage.imreg-theme` and applied to `<html class="dark">` before first paint to avoid FOUC. Chart.js reads the brand colors from CSS custom properties on every render, so dark mode flips correctly without a page reload.
 
@@ -358,7 +386,7 @@ Adding a new component class is one `app.css` edit. No rebuild, no JS, no manife
 
 **Reduced motion:** all animation and transition duration is overridden to 0.01ms when the user has `prefers-reduced-motion: reduce`. The "Threshold reached" pulse on the dashboard stops animating. The flash auto-dismiss becomes instant.
 
-**Fonts** are loaded from Google Fonts via `<link rel="stylesheet">` at runtime, with a `preconnect` hint for the gstatic host. No self-hosted `.woff2` files; no extra cPanel disk usage.
+**Fonts** — `Fraunces` (variable serif, 600 weight) for headings and KPIs, `Inter` for body text and controls, `JetBrains Mono` for data tables and IDs. All loaded from Google Fonts via `<link rel="stylesheet">` at runtime, with a `preconnect` hint for the gstatic host. No self-hosted `.woff2` files; no extra cPanel disk usage.
 
 ---
 

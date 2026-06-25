@@ -3,8 +3,8 @@
 /**
  * IMedia Registration — Route definitions.
  *
- * Phase 5: adds the Outbox surface (index / process / retry). The
- * 39 routes registered in Phases 3-4 are preserved unchanged.
+ * Phase 5: adds the Outbox surface (index / process / retry), bulk-status,
+ * resume download, and form-routes CRUD.
  *
  * Per php-pro: typed closure parameter; middleware via __invoke classes.
  * Per wordpress-pro: CSRF on every state-changing form post.
